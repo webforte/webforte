@@ -18,12 +18,20 @@ const Section = styled.div`
 
 const Lead = styled.h1``
 
+const ProfileImage = styled.img`
+  width: 100px;
+  border-radius: 50%;
+  margin-bottom: 2rem;
+`
+
 const IndexPage = () => (
   <Layout>
     <SEO title="Moderne Web- und App-Entwicklung" />
 
     <Section>
       <Container>
+        <ProfileImage src={require('../images/me.jpg')} alt="Me" />
+
         <Lead>
           – Hi, I'm Konstantin Werner,
           <br /> a freelance web and app developer.
