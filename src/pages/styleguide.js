@@ -1,35 +1,28 @@
 // @flow
 import React from 'react'
 // import { Link } from 'gatsby'
-import styled from 'styled-components'
 
 import { Container } from 'reactstrap'
 import { Layout } from '../components/Layout'
 // import Image from '../components/Image'
 import SEO from '../components/seo'
 
-const Section = styled.div`
-  padding: 2rem 0;
-
-  @media screen and (min-width: 576px) {
-    padding: 4rem 0;
-  }
-`
-
-const Lead = styled.h1``
-
-const IndexPage = () => (
+const StyleguidePage = () => (
   <Layout>
     <SEO title="Moderne Web- und App-Entwicklung" />
 
-    <Section>
-      <Container>
-        <Lead>
-          – Hi, I'm Konstantin Werner,
-          <br /> a freelance web and app developer.
-        </Lead>
-      </Container>
-    </Section>
+    <Container>
+      <h1>Styleguide</h1>
+
+      <br />
+
+      <h1>Überschrift 1</h1>
+      <h2>Überschrift 2</h2>
+      <h3>Überschrift 3</h3>
+      <h4>Überschrift 4</h4>
+      <h5>Überschrift 5</h5>
+      <h6>Überschrift 6</h6>
+    </Container>
     {/* <h1>Hi people</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
@@ -40,4 +33,4 @@ const IndexPage = () => (
   </Layout>
 )
 
-export default IndexPage
+export default StyleguidePage

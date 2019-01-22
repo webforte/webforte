@@ -2,12 +2,13 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import * as v from '../../config/variables'
+
 const FooterWrap = styled.footer`
-  background: black;
+  background: ${v.black};
+  min-height: 10rem;
 `
 
-const Footer = () => {
-  return <FooterWrap>Footer</FooterWrap>
-}
+const Footer = () => <FooterWrap>Footer</FooterWrap>
 
 export default Footer

@@ -1,21 +1,40 @@
 // @flow
 import React from 'react'
-import { Layout } from '../components/Layout'
 import { Container } from 'reactstrap'
+import styled from 'styled-components'
 
+import { Layout } from '../components/Layout'
 import SEO from '../components/seo'
 import { Button } from '../components/UI'
 
+const Headline1 = styled.h1``
+
+const Section = styled.div`
+  padding: 3rem 0 1rem;
+
+  @media screen and (min-width: 576px) {
+    padding: 8rem 0 1rem;
+  }
+`
+
+const HeadlineSection = styled.header`
+  margin-bottom: 3rem;
+`
+
 const NotFoundPage = () => (
   <Layout>
-    <SEO title="404: Not found" />
+    <SEO title="Seite nicht gefunden." />
 
-    <Container>
-      <h1>Seite nicht gefunden</h1>
-      <p>Diese Route existiert nicht.</p>
+    <Section>
+      <Container>
+        <HeadlineSection>
+          <Headline1>Seite nicht gefunden</Headline1>
+          <p>Sorry, diese Route existiert nicht.</p>
+        </HeadlineSection>
 
-      <Button>Zur Startseite</Button>
-    </Container>
+        <Button>Zurück zur Startseite</Button>
+      </Container>
+    </Section>
   </Layout>
 )
 
