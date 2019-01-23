@@ -10,6 +10,16 @@ const StyledHeader = styled.header`
   padding: 1rem 0;
   display: flex;
   align-items: center;
+
+  ${({ stickyHeader }) =>
+    stickyHeader &&
+    `
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+    `}
 `
 
 const Nav = styled.nav`
@@ -45,8 +55,13 @@ const MenuItem = styled.li`
   }
 `
 
-const Header = ({ siteTitle }) => (
-  <StyledHeader>
+type Props = {
+  siteTitle: string,
+  stickyHeader: boolean,
+}
+
+const Header = ({ stickyHeader }: Props) => (
+  <StyledHeader stickyHeader={stickyHeader}>
     <Container>
       <Nav>
         <Link to="/" title="Zur Startseite">

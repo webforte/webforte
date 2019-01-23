@@ -55,7 +55,12 @@ const Container = styled.div`
   }
 `
 
-const Layout = ({ children }) => (
+type Props = {
+  children: any,
+  stickyHeader: boolean,
+}
+
+const Layout = ({ children, stickyHeader }: Props) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -69,7 +74,10 @@ const Layout = ({ children }) => (
     render={data => (
       <>
         <GlobalStyle />
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header
+          siteTitle={data.site.siteMetadata.title}
+          stickyHeader={stickyHeader}
+        />
 
         <Container>{children}</Container>
 

@@ -3,16 +3,22 @@ import React from 'react'
 // import { Link } from 'gatsby'
 import styled from 'styled-components'
 
-import { Container } from 'reactstrap'
+import { Container, Row, Col } from 'reactstrap'
 import { Layout } from '../components/Layout'
 // import Image from '../components/Image'
 import SEO from '../components/seo'
 
+const portrait = require('../images/portrait.jpg')
+
 const Section = styled.div`
-  padding: 2rem 0;
+  padding: 0;
+  background-image: url(${portrait});
+  background-repeat: no-repeat;
+  background-size: 50% 100%, cover;
+  background-position: right top;
 
   @media screen and (min-width: 576px) {
-    padding: 4rem 0;
+    padding: 0;
   }
 `
 
@@ -24,18 +30,36 @@ const ProfileImage = styled.img`
   margin-bottom: 2rem;
 `
 
+const Wrap = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 0;
+`
+
 const IndexPage = () => (
-  <Layout>
+  <Layout stickyHeader>
     <SEO title="Moderne Web- und App-Entwicklung" />
 
     <Section>
-      <Container>
-        <ProfileImage src={require('../images/me.jpg')} alt="Me" />
+      <Container fluid>
+        <Row>
+          <Col sm="6">
+            <Wrap>
+              {/* <ProfileImage src={require('../images/me.jpg')} alt="Me" /> */}
 
-        <Lead>
-          – Hi, I'm Konstantin Werner,
-          <br /> a freelance web and app developer.
-        </Lead>
+              <Lead>
+                – Hi, I'm Konstantin Werner,
+                <br /> a freelance web and app developer.
+              </Lead>
+            </Wrap>
+          </Col>
+
+          <Col sm="6">
+            {/* <img src={portrait} style={{ maxWidth: '100%' }} alt="Me" /> */}
+          </Col>
+        </Row>
       </Container>
     </Section>
     {/* <h1>Hi people</h1>
