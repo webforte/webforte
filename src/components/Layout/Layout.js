@@ -11,13 +11,17 @@ import { Header, Footer } from '.'
 // import './layout.css'
 
 const GlobalStyle = createGlobalStyle`
+
+  html, body {
+    font-size: 18px;
+  }
+
   body {
-    font-size: 17px;
     color: ${v.black};
   }
 
   a {
-    /* color: #90cac0; */
+
   }
   
   h1, h2, h3, h4, h5, h6,
@@ -30,10 +34,25 @@ const GlobalStyle = createGlobalStyle`
   h1, .h1 {
     font-size: 3rem;
   }
+
+  h2, .h2 {
+    font-size: 2.5rem;
+  }
 `
 
 const Container = styled.div`
   min-height: 700px;
+
+  a {
+    color: ${v.black};
+    border-bottom: 2px solid ${v.black};
+
+    &:hover,
+    &:focus {
+      color: ${v.black};
+      text-decoration: none;
+    }
+  }
 `
 
 const Layout = ({ children }) => (

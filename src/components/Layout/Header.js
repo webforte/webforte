@@ -36,10 +36,11 @@ const MenuItem = styled.li`
     margin: 0 0.7rem;
     color: #141414;
     text-decoration: none;
+    border-bottom: 2px solid #141414;
 
     &:hover,
     &:focus {
-      border-bottom: 1px solid #141414;
+      border-bottom: 2px solid #141414;
     }
   }
 `
@@ -48,7 +49,7 @@ const Header = ({ siteTitle }) => (
   <StyledHeader>
     <Container>
       <Nav>
-        <Link to="/">
+        <Link to="/" title="Zur Startseite">
           <Logo
             src={require('../../images/webforte-logo.svg')}
             alt="webƒorte"
