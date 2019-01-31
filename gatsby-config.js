@@ -1,14 +1,21 @@
 module.exports = {
   siteMetadata: {
     title: `Konstantin Werner`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    description: `Webforte Webseite`,
+    author: `Konstantin Werner <konstantin@webforte.io>`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-flow`,
     `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `qiwepqcjf6yg`,
+        accessToken: `e7f6d46c94276e09b1af83df1632a4e7d941d8e6c156ee8872a1b59c99afd72f`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

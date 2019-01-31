@@ -3,7 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 import * as v from '../../config/variables'
 
-import references from './referencesData'
+// import references from './referencesData'
 import BrowserWindow from '../BrowserWindow/BrowserWindow'
 
 // const RefImage = styled.img`
@@ -149,44 +149,52 @@ const ColText = styled.div`
   }
 `
 
-const slug = (text: string) => text.replace(/\s/g, '-').toLocaleLowerCase()
+// const slug = (text: string) => text.replace(/\s/g, '-').toLocaleLowerCase()
 
-const ReferencesList = () => (
+type Props = {
+  references: Array<Object>,
+}
+
+const ReferencesList = ({ references }: Props) => (
   <StyledList>
     {references.map(r => (
       <Reference key={r.id}>
-        <ImageWrap href={r.url}>
+        <ImageWrap href={r.projectWebsite}>
           <BrowserWindow>
-            {r.image && (
-              <img style={{ maxWidth: '100%' }} src={r.image} alt={r.title} />
+            {r.bild && (
+              <img
+                style={{ maxWidth: '100%' }}
+                src={r.bild.fluid.src}
+                alt={r.title}
+              />
             )}
           </BrowserWindow>
         </ImageWrap>
 
         <Information>
-          <Title>{r.title}</Title>
+          <Title>{r.name}</Title>
           {/* <Year>{r.year}</Year> */}
 
-          <Subline>{r.subtitle}</Subline>
-          <WorkDescription>{r.workDescription}</WorkDescription>
+          <Subline>{r.subline}</Subline>
+          <WorkDescription>{r.description}</WorkDescription>
 
           <Columns>
             <Column>
               <ColTitle>{r.skills.length > 1 ? 'Skills' : 'Skill'}</ColTitle>
               <ColText>
                 {r.skills.map(skill => (
-                  <span key={`platform-${slug(skill)}`}>{skill}</span>
+                  <span key={skill.id}>{skill.name}</span>
                 ))}
               </ColText>
             </Column>
 
             <Column>
               <ColTitle>
-                {r.platform.length > 1 ? 'Platforms' : 'Platform'}
+                {r.platforms.length > 1 ? 'Platforms' : 'Platform'}
               </ColTitle>
               <ColText>
-                {r.platform.map(platform => (
-                  <span key={`platform-${slug(platform)}`}>{platform}</span>
+                {r.platforms.map(platform => (
+                  <span key={platform.id}>{platform.title}</span>
                 ))}
               </ColText>
             </Column>

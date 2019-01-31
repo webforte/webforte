@@ -1,6 +1,7 @@
 // @flow
 import React from 'react'
-// import { Link } from 'gatsby'
+import { graphql } from 'gatsby'
+
 import styled from 'styled-components'
 
 import { Container } from 'reactstrap'
@@ -55,39 +56,90 @@ const Centered = styled.div`
   }
 `
 
-const PortfolioPage = () => (
-  <Layout>
-    <SEO title="Current work" />
+const PortfolioPage = ({ data }) => {
+  const {
+    contentfulSeite: { id, title, lead, subtitle, sections },
+  } = data
 
-    <Section>
-      <Container>
-        <HeadlineSection>
-          <h1>I assist companies with creating modern digital products.</h1>
-          <Lead>
-            Selected projects – 
-            <a href="mailto:&#107;&#111;&#110;&#115;&#116;&#097;&#110;&#116;&#105;&#110;&#064;&#119;&#101;&#098;&#102;&#111;&#114;&#116;&#101;&#046;&#105;&#111;">
-              text me
-            </a>{' '}
-            for more.
-          </Lead>
-          {/* <p>Selected projects</p> */}
-        </HeadlineSection>
+  const { references } = sections[0]
 
-        <ReferencesList />
+  return (
+    <Layout>
+      <SEO title="Current work" />
 
-        <Centered>
-          <p className="h2">Interested in working with me?</p>
-          <Lead>
-            Let's create something together and{' '}
-            <a href="mailto:&#107;&#111;&#110;&#115;&#116;&#097;&#110;&#116;&#105;&#110;&#064;&#119;&#101;&#098;&#102;&#111;&#114;&#116;&#101;&#046;&#105;&#111;">
-              {' '}
-              talk.
-            </a>
-          </Lead>
-        </Centered>
-      </Container>
-    </Section>
-  </Layout>
-)
+      <Section>
+        <Container>
+          <HeadlineSection>
+            <h1>{lead}</h1>
+            <Lead>
+              {subtitle}
+              {/* Selected projects – 
+              <a href="mailto:&#107;&#111;&#110;&#115;&#116;&#097;&#110;&#116;&#105;&#110;&#064;&#119;&#101;&#098;&#102;&#111;&#114;&#116;&#101;&#046;&#105;&#111;">
+                text me
+              </a>{' '}
+              for more. */}
+            </Lead>
+            {/* <p>Selected projects</p> */}
+          </HeadlineSection>
+
+          <ReferencesList references={references} />
+
+          <Centered>
+            <p className="h2">Interested in working with me?</p>
+            <Lead>
+              Let's create something together and{' '}
+              <a href="mailto:&#107;&#111;&#110;&#115;&#116;&#097;&#110;&#116;&#105;&#110;&#064;&#119;&#101;&#098;&#102;&#111;&#114;&#116;&#101;&#046;&#105;&#111;">
+                {' '}
+                talk.
+              </a>
+            </Lead>
+          </Centered>
+        </Container>
+      </Section>
+    </Layout>
+  )
+}
+
+export const query = graphql`
+  {
+    contentfulSeite {
+      id
+      title
+      lead
+      subtitle
+      sections {
+        id
+        references {
+          id
+          name
+          subline
+          description
+          projectWebsite
+          year
+          projectWebsite
+          skills {
+            id
+            name
+          }
+          platforms {
+            id
+            title
+          }
+          via {
+            id
+            name
+            website
+          }
+          bild {
+            id
+            fluid {
+              src
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 export default PortfolioPage
