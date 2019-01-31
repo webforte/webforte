@@ -22,9 +22,14 @@ const Section = styled.div`
 const HeadlineSection = styled.header`
   margin: 2rem 0 4rem;
 
-  @media screen and (min-width: 576px) {
+  @media screen and (min-width: 992px) {
     margin: 4rem 0 8rem;
-    width: 70%;
+    width: 60%;
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin: 4rem 0 8rem;
+    width: 50%;
   }
 
   > h1 {

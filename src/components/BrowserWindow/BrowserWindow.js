@@ -52,7 +52,7 @@ const Frame = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 250px;
+  min-height: 200px;
   box-shadow: 0 8px 42px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   transition-duration: 0.2s;
