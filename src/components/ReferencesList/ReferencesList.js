@@ -215,9 +215,9 @@ const ReferencesList = ({ references }: Props) => (
             <Fact>Type of work: Wordpress, React</Fact>
 
           </FactsList> */}
-          {r.url && (
+          {r.projectWebsite && (
             <FurtherReading>
-              <a href={r.url}>View project</a>
+              <a href={r.projectWebsite}>View project</a>
             </FurtherReading>
           )}
         </Information>

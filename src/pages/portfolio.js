@@ -58,7 +58,7 @@ const Centered = styled.div`
 
 const PortfolioPage = ({ data }) => {
   const {
-    contentfulSeite: { id, title, lead, subtitle, sections },
+    contentfulSeite: { lead, subtitle, sections },
   } = data
 
   const { references } = sections[0]
