@@ -11,6 +11,7 @@ const FooterWrap = styled.footer`
   /* min-height: 10rem; */
   font-size: 0.8rem;
   padding: 2rem 0 2rem;
+  margin-top: 2rem;
 
   p {
     line-height: 1.8;
@@ -44,7 +45,12 @@ const FooterWrap = styled.footer`
 const FooterRow = styled.div`
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   justify-content: space-between;
+
+  @media screen and (min-width: 576px) {
+    flex-direction: row;
+  }
 `
 
 const Col = styled.div``

@@ -23,12 +23,18 @@ const HeadlineSection = styled.header`
   margin: 2rem 0 4rem;
 
   @media screen and (min-width: 576px) {
-    margin: 4rem 0 8rem
+    margin: 4rem 0 8rem;
+    width: 70%;
   }
 
   > h1 {
     margin: 0;
-    line-height: 1.2;
+    line-height: 1.3;
+    font-size: 1.5rem;
+
+    @media screen and (min-width: 576px) {
+      font-size: 2rem;
+    }
   }
 
   /* > p {
@@ -42,7 +48,8 @@ const HeadlineSection = styled.header`
 
 const Lead = styled.p`
   font-family: ${v.fontFamilySansSerif};
-  font-size: 1.7rem;
+  font-size: 1.2rem;
+  line-height: 1.3;
   margin: 1rem 0 0;
   color: ${v.gray};
 `

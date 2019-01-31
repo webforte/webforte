@@ -32,11 +32,13 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1, .h1 {
-    font-size: 3rem;
+    font-size: 2rem;
+    line-height: 1.4;
   }
 
   h2, .h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    line-height: 1.4;
   }
 `
 

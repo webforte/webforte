@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import * as v from '../../config/variables'
 
 // import references from './referencesData'
+import { BigLink } from '../UI'
 import BrowserWindow from '../BrowserWindow/BrowserWindow'
 
 // const RefImage = styled.img`
@@ -17,6 +18,7 @@ const ImageWrap = styled.a`
   transition-timing-function: ease-in-out;
   transition-property: transform;
   border-bottom: none !important;
+  margin-bottom: 2rem;
 
   &:hover,
   &:focus {
@@ -43,16 +45,22 @@ const StyledList = styled.ul`
 
 const Reference = styled.li`
   padding: 0;
-  margin: 5rem 0 8rem;
+  margin: 3rem 0 5rem;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
 
   > ${ImageWrap}, > ${Information} {
     flex: 0 0 44%;
   }
 
-  &:nth-child(even) {
-    flex-direction: row-reverse;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    margin: 5rem 0 8rem;
+
+    &:nth-child(even) {
+      flex-direction: row-reverse;
+    }
   }
 `
 
@@ -75,49 +83,6 @@ const WorkDescription = styled.p`
   color: ${v.gray};
   font-size: 1rem;
   margin-bottom: 1rem;
-`
-
-const FurtherReading = styled.div`
-  a {
-    display: inline-block;
-    font-weight: bold;
-    margin: 0.25rem 0;
-    color: ${v.black};
-    border-bottom: 2px solid ${v.cyan};
-    transform: perspective(1px) translateZ(0);
-    /* box-shadow: 0 0 1px rgba(0, 0, 0, 0); */
-    position: relative;
-    transition-property: color;
-    transition-duration: 0.2s;
-    transition-timing-function: ease-in-out;
-    padding: 3px 8px;
-
-    &:before {
-      content: '';
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: ${v.cyan};
-      transform: scaleY(0);
-      transform-origin: 50% 100%;
-      transition-property: transform;
-      transition-duration: 0.2s;
-      /* transition-timing-function: ease-out; */
-    }
-
-    &:hover,
-    &:focus {
-      text-decoration: none;
-      color: ${v.white};
-
-      &:before {
-        transform: scaleY(1);
-      }
-    }
-  }
 `
 
 // Columns
@@ -216,9 +181,9 @@ const ReferencesList = ({ references }: Props) => (
 
           </FactsList> */}
           {r.projectWebsite && (
-            <FurtherReading>
-              <a href={r.projectWebsite}>View project</a>
-            </FurtherReading>
+            <div>
+              <BigLink href={r.projectWebsite}>View project</BigLink>
+            </div>
           )}
         </Information>
       </Reference>

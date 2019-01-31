@@ -3,39 +3,72 @@ import React from 'react'
 // import { Link } from 'gatsby'
 import styled from 'styled-components'
 
-import { Container, Row, Col } from 'reactstrap'
+import { Container as BsContainer } from 'reactstrap'
+import { Link } from 'gatsby'
 import { Layout } from '../components/Layout'
 // import Image from '../components/Image'
 import SEO from '../components/seo'
+import { BigLink } from '../components/UI'
 
 const portrait = require('../images/portrait.jpg')
 
 const Section = styled.div`
   padding: 0;
-  background-image: url(${portrait});
+  position: relative;
+  height: 100vh;
+  /* background-image: url(${portrait});
   background-repeat: no-repeat;
   background-size: 50% 100%, cover;
-  background-position: right top;
+  background-position: right top; */
 
   @media screen and (min-width: 576px) {
     padding: 0;
   }
 `
 
-const Lead = styled.h1``
-
-const ProfileImage = styled.img`
-  width: 100px;
-  border-radius: 50%;
-  margin-bottom: 2rem;
+const Lead = styled.h1`
+  font-size: 2.2rem;
+  width: 100%;
 `
 
-const Wrap = styled.div`
+// const ProfileImage = styled.img`
+//   width: 100px;
+//   border-radius: 50%;
+//   margin-bottom: 2rem;
+// `
+
+const Content = styled.div`
   height: 100%;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
   padding: 2rem 0;
+
+  @media screen and (min-width: 576px) {
+    width: 50%;
+  }
+`
+
+const Me = styled.div`
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-image: url(${portrait});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right top;
+
+  @media screen and (min-width: 576px) {
+    display: block;
+  }
+`
+
+const Container = styled(BsContainer)`
+  height: 100%;
 `
 
 const IndexPage = () => (
@@ -43,23 +76,23 @@ const IndexPage = () => (
     <SEO title="Moderne Web- und App-Entwicklung" />
 
     <Section>
-      <Container fluid>
-        <Row>
-          <Col sm="6">
-            <Wrap>
-              {/* <ProfileImage src={require('../images/me.jpg')} alt="Me" /> */}
+      <Me />
 
-              <Lead>
-                – Hi, I'm Konstantin Werner,
-                <br /> a freelance web and app developer.
-              </Lead>
-            </Wrap>
-          </Col>
+      <Container>
+        <Content>
+          {/* <ProfileImage src={require('../images/me.jpg')} alt="Me" /> */}
 
-          <Col sm="6">
-            {/* <img src={portrait} style={{ maxWidth: '100%' }} alt="Me" /> */}
-          </Col>
-        </Row>
+          <Lead>
+            – Hi, I'm Konstantin,
+            <br /> a freelance web and app developer.
+          </Lead>
+
+          <div>
+            <BigLink as={Link} to="portfolio">
+              See my work
+            </BigLink>
+          </div>
+        </Content>
       </Container>
     </Section>
     {/* <h1>Hi people</h1>
