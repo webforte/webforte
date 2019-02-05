@@ -1,5 +1,6 @@
 // @flow
 import React from 'react'
+import { Link } from 'gatsby'
 import { Container } from 'reactstrap'
 import styled from 'styled-components'
 
@@ -23,16 +24,18 @@ const HeadlineSection = styled.header`
 
 const NotFoundPage = () => (
   <Layout>
-    <SEO title="Seite nicht gefunden." />
+    {/* Seite nicht gefunden. */}
+    <SEO title="Site not found" />
 
     <Section>
       <Container>
         <HeadlineSection>
-          <Headline1>Seite nicht gefunden</Headline1>
-          <p>Sorry, diese Route existiert nicht.</p>
+          <Headline1>Site not found</Headline1>
+          {/* Sorry, diese Route existiert nicht. */}
+          <p>Sorry, the page you're looking for does not exist.</p>
         </HeadlineSection>
 
-        <Button>Zurück zur Startseite</Button>
+        <Link to="/">Back to start</Link>
       </Container>
     </Section>
   </Layout>
