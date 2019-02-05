@@ -6,7 +6,7 @@ import styled from 'styled-components'
 
 import { Layout } from '../components/Layout'
 import SEO from '../components/seo'
-import { Button } from '../components/UI'
+// import { Button } from '../components/UI'
 
 const Headline1 = styled.h1``
 
