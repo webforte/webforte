@@ -76,7 +76,7 @@ const Footer = () => {
               <strong>Contact</strong>
               <br />
               <a href="mailto:&#107;&#111;&#110;&#115;&#116;&#097;&#110;&#116;&#105;&#110;&#064;&#119;&#101;&#098;&#102;&#111;&#114;&#116;&#101;&#046;&#105;&#111;">
-                konstantin@webforte.io
+                &#107;&#111;&#110;&#115;&#116;&#097;&#110;&#116;&#105;&#110;&#064;&#119;&#101;&#098;&#102;&#111;&#114;&#116;&#101;&#046;&#105;&#111;
               </a>
             </p>
           </Col>
@@ -84,10 +84,22 @@ const Footer = () => {
             <p>
               <strong>Find me on</strong>
               <br />
-              <a href="https://www.linkedin.com/in/konstantin-werner-433750a0/">
+              <a
+                href="https://www.linkedin.com/in/konstantin-werner-433750a0/"
+                title="Find me on LinkedIn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 LinkedIn
               </a>
-              <a href="https://www.xing.com/profile/Konstantin_Werner5">Xing</a>
+              <a
+                href="https://www.xing.com/profile/Konstantin_Werner5"
+                title="Find me on Xing"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Xing
+              </a>
             </p>
           </Col>
         </FooterRow>

@@ -182,7 +182,14 @@ const ReferencesList = ({ references }: Props) => (
           </FactsList> */}
           {r.projectWebsite && (
             <div>
-              <BigLink href={r.projectWebsite}>View project</BigLink>
+              <BigLink
+                href={r.projectWebsite}
+                title={`View project ${r.name}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View project
+              </BigLink>
             </div>
           )}
         </Information>

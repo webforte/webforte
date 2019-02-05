@@ -43,7 +43,7 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Container = styled.div`
-  min-height: 700px;
+  min-height: 550px;
 
   a {
     color: ${v.black};
