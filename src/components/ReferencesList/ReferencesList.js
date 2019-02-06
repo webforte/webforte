@@ -124,7 +124,11 @@ const ReferencesList = ({ references }: Props) => (
   <StyledList>
     {references.map(r => (
       <Reference key={r.id}>
-        <ImageWrap href={r.projectWebsite}>
+        <ImageWrap
+          href={r.projectWebsite}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <BrowserWindow>
             {r.bild && (
               <img

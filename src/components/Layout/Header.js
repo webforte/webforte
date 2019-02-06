@@ -73,10 +73,15 @@ const Header = ({ stickyHeader }: Props) => (
 
         <MenuList>
           <MenuItem>
-            <Link to="/portfolio">Work</Link>
+            <Link to="/portfolio" title="Go to Work">
+              Work
+            </Link>
           </MenuItem>
           <MenuItem>
-            <a href="mailto:&#107;&#111;&#110;&#115;&#116;&#097;&#110;&#116;&#105;&#110;&#064;&#119;&#101;&#098;&#102;&#111;&#114;&#116;&#101;&#046;&#105;&#111;">
+            <a
+              href="mailto:&#107;&#111;&#110;&#115;&#116;&#097;&#110;&#116;&#105;&#110;&#064;&#119;&#101;&#098;&#102;&#111;&#114;&#116;&#101;&#046;&#105;&#111;"
+              title="Go to Contact"
+            >
               Contact
             </a>
           </MenuItem>
