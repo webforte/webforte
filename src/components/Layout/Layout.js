@@ -8,7 +8,8 @@ import '../../styles/style-basic.scss'
 
 import * as v from '../../config/variables'
 import { Header, Footer } from '.'
-// import './layout.css'
+
+require('typeface-scope-one')
 
 const GlobalStyle = createGlobalStyle`
 
