@@ -23,6 +23,7 @@ const PrivacyPage = () => (
           This site does not store or proceed any of your data whatsoever.
         </strong>
       </p>
+      <p>Promise!</p>
     </Container>
   </Layout>
 )

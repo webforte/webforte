@@ -1,8 +1,20 @@
 // @flow
+import React from 'react'
 import styled from 'styled-components'
+
 import * as v from '../../config/variables'
 
-const BigLink = styled.a`
+export const StyledButton = styled.button`
+  outline: none;
+  border: 1px solid black;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border-radius: 0.2rem;
+`
+
+export const Button = ({ children }) => <StyledButton>{children}</StyledButton>
+
+export const BigLink = styled.a`
   display: inline-block;
   font-weight: bold;
   margin: 0.25rem 0;
@@ -42,5 +54,3 @@ const BigLink = styled.a`
     }
   }
 `
-
-export default BigLink

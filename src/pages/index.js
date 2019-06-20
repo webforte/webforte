@@ -73,7 +73,7 @@ const Container = styled(BsContainer)`
 
 const IndexPage = () => (
   <Layout stickyHeader>
-    <SEO title="Moderne Web- und App-Entwicklung" />
+    <SEO title="Modern web and app development" />
 
     <Section>
       <Me />
