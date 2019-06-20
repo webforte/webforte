@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 // import { graphql, useStaticQuery } from 'gatsby'
-import Img from 'gatsby-image'
+// import Img from 'gatsby-image'
 import styled from 'styled-components'
 
 import { Container, Row, Col } from 'reactstrap'
@@ -46,17 +46,17 @@ const LogoItem = styled.li`
 
 const IndexPage = () => {
   // const data = useStaticQuery(graphql`
-  //   query {
-  //     logoWsn: file(
-  //       relativePath: { eq: "companies/logo-wildstyle-network.png" }
-  //     ) {
-  //       childImageSharp {
-  //         fixed(height: 200) {
-  //           ...GatsbyImageSharpFixed
-  //         }
+  // query {
+  //   logoWsn: file(
+  //     relativePath: { eq: "companies/logo-wildstyle-network.png" }
+  //   ) {
+  //     childImageSharp {
+  //       fixed(height: 200) {
+  //         ...GatsbyImageSharpFixed
   //       }
   //     }
   //   }
+  // }
   // `)
   // const { logoMindbox, logoWsn, logoLeichtLuftig } = data
 
@@ -79,10 +79,7 @@ const IndexPage = () => {
                   href="https://www.wildstyle-network.com/"
                   title="Wildstyle Network"
                 >
-                  <Img
-                    fixed={logoWsn.childImageSharp.fixed}
-                    alt="Wildstyle Network Logo"
-                  />
+                  <img src="" alt="Wildstyle Network Logo" />
                 </a>
               </LogoItem>
 
