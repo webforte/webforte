@@ -1,5 +1,4 @@
 import { Link } from 'gatsby'
-import PropTypes from 'prop-types'
 import React from 'react'
 
 import styled from 'styled-components'
@@ -43,7 +42,8 @@ const MenuList = styled.ul`
 const MenuItem = styled.li`
   a,
   button {
-    margin: 0 0.7rem;
+    font-size: 0.9rem;
+    margin: 0 0.5rem;
     color: #141414;
     text-decoration: none;
     border-bottom: 2px solid #141414;
@@ -52,23 +52,27 @@ const MenuItem = styled.li`
     &:focus {
       border-bottom: 2px solid #141414;
     }
+
+    @media (min-width: 576px) {
+      font-size: 1rem;
+      margin: 0 0.7rem;
+    }
   }
 `
 
 type Props = {
-  siteTitle: string,
+  // siteTitle: string,
   stickyHeader: boolean,
 }
+
+const webforteLogo = require('../../images/webforte-logo.svg')
 
 const Header = ({ stickyHeader }: Props) => (
   <StyledHeader stickyHeader={stickyHeader}>
     <Container>
       <Nav>
         <Link to="/" title="Zur Startseite">
-          <Logo
-            src={require('../../images/webforte-logo.svg')}
-            alt="webƒorte"
-          />
+          <Logo src={webforteLogo} alt="webƒorte" />
         </Link>
 
         <MenuList>
@@ -77,6 +81,13 @@ const Header = ({ stickyHeader }: Props) => (
               Work
             </Link>
           </MenuItem>
+
+          <MenuItem>
+            <Link to="/about-me" title="Go to About me">
+              About me
+            </Link>
+          </MenuItem>
+
           <MenuItem>
             <a
               href="mailto:&#107;&#111;&#110;&#115;&#116;&#097;&#110;&#116;&#105;&#110;&#064;&#119;&#101;&#098;&#102;&#111;&#114;&#116;&#101;&#046;&#105;&#111;"
@@ -90,13 +101,5 @@ const Header = ({ stickyHeader }: Props) => (
     </Container>
   </StyledHeader>
 )
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header

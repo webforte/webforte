@@ -4,8 +4,6 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import styled, { createGlobalStyle } from 'styled-components'
 
-import '../../styles/style-basic.scss'
-
 import * as v from '../../config/variables'
 import { Header, Footer } from '.'
 
