@@ -5,11 +5,11 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 
 import { Container, Row, Col } from 'reactstrap'
-// import { Link } from 'gatsby'
+import * as v from '../config/variables'
 import { Layout } from '../components/Layout'
-// import Image from '../components/Image'
 import SEO from '../components/seo'
 import { Headline1, Headline2 } from '../components/UI'
+import { ContactSection } from '../components/Sections'
 
 const LogoList = styled.ul`
   display: flex;
@@ -60,20 +60,38 @@ const Vita = styled.aside`
   align-items: center;
   flex-wrap: wrap;
   margin: 0 0 5rem;
+
+  @media (min-width: 768px) {
+    flex-wrap: nowrap;
+  }
 `
 
 const ProfileImage = styled(Img)`
   flex: 0 0 auto;
   border-radius: 300px;
-  margin: 1rem;
+  margin: 0 0 2rem;
   transition: transform ease 0.2s;
+
+  @media (min-width: 768px) {
+    margin: 0 2rem 0 0;
+  }
 
   &:hover {
     transform: scale(1.07);
   }
 `
 
-const VitaFacts = styled.ul``
+const VitaFacts = styled.ul`
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  color: ${v.gray};
+  font-size: 1.2rem;
+
+  > li {
+    margin: 0 0 0.5rem;
+  }
+`
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -180,7 +198,7 @@ const IndexPage = () => {
 
       <Container>
         <Row>
-          <Col lg={{ size: 8, offset: 2 }}>
+          <Col lg={{ size: 10, offset: 1 }}>
             <Headline1>About me</Headline1>
 
             <Vita>
@@ -190,7 +208,15 @@ const IndexPage = () => {
               />
 
               <VitaFacts>
-                <li>born and currently living in Dresden, Germany</li>
+                <li>Born and currently living in Dresden, Germany</li>
+                <li>
+                  I handcraft modern apps with focus on user friendliness,
+                  simplicity and a solid technology stack.
+                </li>
+                <li>
+                  I have 6 years experience in web development and 3 years in
+                  cross plattform app development.
+                </li>
               </VitaFacts>
             </Vita>
 
@@ -292,6 +318,10 @@ const IndexPage = () => {
             </LogoList>
           </Col>
         </Row>
+
+        <div style={{ margin: '5rem 0 0 ' }}>
+          <ContactSection />
+        </div>
       </Container>
     </Layout>
   )

@@ -7,7 +7,11 @@ import styled from 'styled-components'
 import { Container } from 'reactstrap'
 import * as v from '../config/variables'
 import { Layout } from '../components/Layout'
+import { Lead } from '../components/UI'
+
 import { ReferencesList } from '../components/ReferencesList'
+import { ContactSection } from '../components/Sections'
+
 // import Image from '../components/Image'
 import SEO from '../components/seo'
 
@@ -51,23 +55,6 @@ const HeadlineSection = styled.header`
   } */
 `
 
-const Lead = styled.p`
-  font-family: ${v.fontFamilySansSerif};
-  font-size: 1.2rem;
-  line-height: 1.3;
-  margin: 1rem 0 0;
-  color: ${v.gray};
-`
-
-const Centered = styled.div`
-  text-align: center;
-  padding: 2rem 0;
-
-  @media screen and (min-width: 576px) {
-    padding: 3rem 0 6rem;
-  }
-`
-
 const PortfolioPage = ({ data }) => {
   const {
     contentfulSeite: { lead, subtitle, sections },
@@ -96,16 +83,7 @@ const PortfolioPage = ({ data }) => {
 
           <ReferencesList references={references} />
 
-          <Centered>
-            <p className="h2">Interested in working with me?</p>
-            <Lead>
-              Let's create something together and{' '}
-              <a href="mailto:&#107;&#111;&#110;&#115;&#116;&#097;&#110;&#116;&#105;&#110;&#064;&#119;&#101;&#098;&#102;&#111;&#114;&#116;&#101;&#046;&#105;&#111;">
-                {' '}
-                talk.
-              </a>
-            </Lead>
-          </Centered>
+          <ContactSection />
         </Container>
       </Section>
     </Layout>
