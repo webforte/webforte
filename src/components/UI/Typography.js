@@ -6,5 +6,5 @@ export const Headline1 = styled.h1`
 `
 
 export const Headline2 = styled.h2`
-  margin: 1rem 0 2rem;
+  margin: 3rem 0 1rem;
 `
