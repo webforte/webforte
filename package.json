@@ -6,7 +6,7 @@
   "author": "Konstantin Werner <konstantin@webforte.io>",
   "dependencies": {
     "bootstrap": "^4.2.1",
-    "gatsby": "^2.9.11",
+    "gatsby": "2.9.8",
     "gatsby-image": "^2.0.20",
     "gatsby-plugin-flow": "^1.0.2",
     "gatsby-plugin-google-fonts": "^1.0.1",
