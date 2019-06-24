@@ -89,12 +89,9 @@ const Header = ({ stickyHeader }: Props) => (
           </MenuItem>
 
           <MenuItem>
-            <a
-              href="mailto:&#107;&#111;&#110;&#115;&#116;&#097;&#110;&#116;&#105;&#110;&#064;&#119;&#101;&#098;&#102;&#111;&#114;&#116;&#101;&#046;&#105;&#111;"
-              title="Go to Contact"
-            >
+            <Link to="/contact" title="Go to Contact">
               Contact
-            </a>
+            </Link>
           </MenuItem>
         </MenuList>
       </Nav>

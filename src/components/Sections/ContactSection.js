@@ -1,5 +1,6 @@
 // @flow
 import React from 'react'
+import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { Lead } from '../UI'
 
@@ -18,10 +19,11 @@ const ContactSection = () => {
       <p className="h2">Interested in working with me?</p>
       <Lead>
         Let&lsquo;s create something together and{' '}
-        <a href="mailto:&#107;&#111;&#110;&#115;&#116;&#097;&#110;&#116;&#105;&#110;&#064;&#119;&#101;&#098;&#102;&#111;&#114;&#116;&#101;&#046;&#105;&#111;">
+        <Link to="/contact">talk</Link>.
+        {/* <a href="mailto:&#107;&#111;&#110;&#115;&#116;&#097;&#110;&#116;&#105;&#110;&#064;&#119;&#101;&#098;&#102;&#111;&#114;&#116;&#101;&#046;&#105;&#111;">
           {' '}
           talk.
-        </a>
+        </a> */}
       </Lead>
     </Centered>
     // @flow
