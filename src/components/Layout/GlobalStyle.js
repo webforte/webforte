@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
   
   h1, h2, h3, h4, h5, h6,
   .h1, .h2, .h3, .h4, .h5, .h6 {
-    font-family: 'Scope One', sans-serif;
+    font-family: ${v.fontFamilySerif};
     font-weight: 400;
     color: ${v.black};
   }
