@@ -15,6 +15,10 @@ import { ContactSection } from '../components/Sections'
 // import Image from '../components/Image'
 import SEO from '../components/seo'
 
+type Props = {
+  data: Object,
+}
+
 const Section = styled.div`
   padding: 2rem 0;
 
@@ -55,7 +59,7 @@ const HeadlineSection = styled.header`
   } */
 `
 
-const PortfolioPage = ({ data }) => {
+const PortfolioPage = ({ data }: Props) => {
   const {
     contentfulSeite: { lead, subtitle, sections },
   } = data
@@ -72,7 +76,7 @@ const PortfolioPage = ({ data }) => {
             <h1>{lead}</h1>
             <Lead>
               {subtitle}
-              {/* Selected projects – 
+              {/* Selected projects – 
               <a href="mailto:&#107;&#111;&#110;&#115;&#116;&#097;&#110;&#116;&#105;&#110;&#064;&#119;&#101;&#098;&#102;&#111;&#114;&#116;&#101;&#046;&#105;&#111;">
                 text me
               </a>{' '}

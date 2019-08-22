@@ -32,7 +32,7 @@ const NotFoundPage = () => (
         <HeadlineSection>
           <Headline1>Site not found</Headline1>
           {/* Sorry, diese Route existiert nicht. */}
-          <p>Sorry, the page you're looking for does not exist.</p>
+          <p>Sorry, the page you&apos;re looking for does not exist.</p>
         </HeadlineSection>
 
         <Link to="/">Back to start</Link>

@@ -83,7 +83,7 @@ const IndexPage = () => (
           {/* <ProfileImage src={require('../images/me.jpg')} alt="Me" /> */}
 
           <Lead>
-            – Hi, I'm Konstantin,
+            – Hi, I&apos;m Konstantin,
             <br /> a freelance web and app developer.
           </Lead>
 

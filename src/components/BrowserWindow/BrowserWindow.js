@@ -2,7 +2,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import * as v from '../../config/variables'
+// import * as v from '../../config/variables'
 
 const ButtonPanel = styled.div`
   width: 30%;
