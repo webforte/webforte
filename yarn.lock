@@ -5388,6 +5388,20 @@ gatsby-plugin-eslint@^2.0.5:
   resolved "https://registry.yarnpkg.com/gatsby-plugin-eslint/-/gatsby-plugin-eslint-2.0.5.tgz#be02f5aff9b7f4a37927f3f917e82ad9f3d67f09"
   integrity sha512-7dgcNtFOGgPLseDA55DDjqqnSW+2Pe91erL6nFjLFs/vlFlT9+GbR/4zkQH9WjWOHSfCtgrUzi59cxM1rBm4kw==
 
+gatsby-page-utils@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/gatsby-page-utils/-/gatsby-page-utils-0.0.2.tgz#0eb341abcdd0a21a8e85a4fe6fb736956d95e0ad"
+  integrity sha512-8fG4KuLtck5q2HPdHmFs69a34CAO2cL1js7WCuFPma3P53lLF5Ui1v5o6cTouF3Yms3Gah8piM3zIWhG7mCHtQ==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    bluebird "^3.5.0"
+    chokidar "2.1.2"
+    fs-exists-cached "^1.0.0"
+    glob "^7.1.1"
+    lodash "^4.17.10"
+    micromatch "^3.1.10"
+    slash "^1.0.0"
+
 gatsby-plugin-flow@^1.0.2:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-flow/-/gatsby-plugin-flow-1.1.3.tgz#1f383a24d8b6a1f1a9dcfb7741c6140c1546afee"
