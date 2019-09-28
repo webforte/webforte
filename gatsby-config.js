@@ -1,5 +1,5 @@
 const path = require(`path`)
-const languages = require('./src/config/languages')
+// const languages = require('./src/config/languages')
 
 module.exports = {
   siteMetadata: {
