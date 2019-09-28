@@ -1,7 +1,9 @@
 const path = require(`path`)
+const languages = require('./src/config/languages')
 
 module.exports = {
   siteMetadata: {
+    siteUrl: 'https://www.webforte.io',
     title: `Konstantin Werner`,
     description: `Webforte Webseite`,
     author: `Konstantin Werner <konstantin@webforte.io>`,
@@ -10,7 +12,9 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-flow`,
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-sass`,
+    // `gatsby-plugin-remove-generator`,
     {
       resolve: `gatsby-source-contentful`,
       options: {
