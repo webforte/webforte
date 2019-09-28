@@ -26,18 +26,18 @@ const PersonText = styled.img`
 const IndexPage = () => {
   return (
     <Layout>
-      <SEO title="Projektanfragen, Kooperation, allgemeine Anfragen – hier kannst du mir eine Nachricht schreiben." />
+      <SEO title="Hit me up with a message and let's talk projects." />
 
       <Container>
         <Row>
           <Col lg={{ size: 5, offset: 1 }}>
-            <Headline1>Kontakt</Headline1>
+            <Headline1>Contact</Headline1>
           </Col>
         </Row>
 
         <Row>
           <Col lg={{ size: 5, offset: 1 }}>
-            Ich freue mich über eine Nachricht oder Projektanfragen an{' '}
+            For project inquiries or questions, you can easily send me a mail to{' '}
             <a href="mailto:&#107;&#111;&#110;&#115;&#116;&#097;&#110;&#116;&#105;&#110;&#064;&#119;&#101;&#098;&#102;&#111;&#114;&#116;&#101;&#046;&#105;&#111;">
               &#107;&#111;&#110;&#115;&#116;&#097;&#110;&#116;&#105;&#110;&#064;&#119;&#101;&#098;&#102;&#111;&#114;&#116;&#101;&#046;&#105;&#111;
             </a>
@@ -57,7 +57,7 @@ const IndexPage = () => {
           </Col>
 
           <Col lg={{ size: 4 }}>
-            <PersonText src={personText} alt="Lass uns verbinden" />
+            <PersonText src={personText} alt="Let's chat" />
           </Col>
         </Row>
       </Container>

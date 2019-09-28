@@ -61,43 +61,61 @@ const MenuItem = styled.li`
   }
 `
 
+// const LanguageSwitch = styled.ul``
+
+// const Language = styled.li``
+
 type Props = {
   // siteTitle: string,
   stickyHeader: boolean,
+  langs: Array<Object>,
 }
 
 const webforteLogo = require('../../images/webforte-logo.svg')
 
-const Header = ({ stickyHeader }: Props) => (
-  <StyledHeader stickyHeader={stickyHeader}>
-    <Container>
-      <Nav>
-        <Link to="/" title="Zur Startseite">
-          <Logo src={webforteLogo} alt="webƒorte" />
-        </Link>
+const Header = (props: Props) => {
+  const { stickyHeader } = props
 
-        <MenuList>
-          <MenuItem>
-            <Link to="/portfolio" title="Go to Work">
-              Work
-            </Link>
-          </MenuItem>
+  return (
+    <StyledHeader stickyHeader={stickyHeader}>
+      <Container>
+        <Nav>
+          <Link to="/" title="Zur Startseite">
+            <Logo src={webforteLogo} alt="webƒorte" />
+          </Link>
 
-          <MenuItem>
-            <Link to="/about-me" title="Go to About me">
-              About me
-            </Link>
-          </MenuItem>
+          <MenuList>
+            <MenuItem>
+              <Link to="/portfolio" title="Go to Work">
+                Work
+              </Link>
+            </MenuItem>
 
-          <MenuItem>
-            <Link to="/contact" title="Go to Contact">
-              Contact
-            </Link>
-          </MenuItem>
-        </MenuList>
-      </Nav>
-    </Container>
-  </StyledHeader>
-)
+            <MenuItem>
+              <Link to="/about-me" title="Go to About me">
+                About me
+              </Link>
+            </MenuItem>
+
+            <MenuItem>
+              <Link to="/contact" title="Go to Contact">
+                Contact
+              </Link>
+            </MenuItem>
+          </MenuList>
+
+          {/* <LanguageSwitch>
+            <Language>
+              <Link to="/de">DE</Link>
+            </Language>
+            <Language>
+              <Link to="/">EN</Link>
+            </Language>
+          </LanguageSwitch> */}
+        </Nav>
+      </Container>
+    </StyledHeader>
+  )
+}
 
 export default Header

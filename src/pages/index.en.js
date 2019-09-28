@@ -75,42 +75,38 @@ const Container = styled(BsContainer)`
   height: 100%;
 `
 
-const IndexPage = (props: Props) => {
-  const { location } = props
+const IndexPage = ({ location }: Props) => (
+  <Layout stickyHeader location={location}>
+    <SEO title="Modern web and app development" />
 
-  return (
-    <Layout stickyHeader location={location}>
-      <SEO title="Moderne Web- und App-Entwicklung" />
+    <Section>
+      <Me />
 
-      <Section>
-        <Me />
+      <Container>
+        <Content>
+          {/* <ProfileImage src={require('../images/me.jpg')} alt="Me" /> */}
 
-        <Container>
-          <Content>
-            {/* <ProfileImage src={require('../images/me.jpg')} alt="Me" /> */}
+          <Lead>
+            – Hi, I&apos;m Konstantin,
+            <br /> a freelance web and app developer.
+          </Lead>
 
-            <Lead>
-              – Hi, ich bin Konstantin,
-              <br /> ein freiberuflicher Web- und App-Entwickler.
-            </Lead>
-
-            <div>
-              <BigLink as={Link} to="portfolio">
-                Meine Arbeiten
-              </BigLink>
-            </div>
-          </Content>
-        </Container>
-      </Section>
-      {/* <h1>Hi people</h1>
+          <div>
+            <BigLink as={Link} to="portfolio">
+              See my work
+            </BigLink>
+          </div>
+        </Content>
+      </Container>
+    </Section>
+    {/* <h1>Hi people</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
       <Image />
     </div>
     <Link to="/page-2/">Go to page 2</Link> */}
-    </Layout>
-  )
-}
+  </Layout>
+)
 
 export default IndexPage

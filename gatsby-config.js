@@ -1,16 +1,21 @@
 const path = require(`path`)
+const languages = require('./src/config/languages')
 
 module.exports = {
   siteMetadata: {
+    siteUrl: 'https://www.webforte.io',
     title: `Konstantin Werner`,
     description: `Webforte Webseite`,
     author: `Konstantin Werner <konstantin@webforte.io>`,
+    languages,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-flow`,
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-sass`,
+    // `gatsby-plugin-remove-generator`,
     {
       resolve: `gatsby-source-contentful`,
       options: {
@@ -23,6 +28,15 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-i18n',
+      options: {
+        langKeyForNull: 'any',
+        langKeyDefault: languages.defaultLangKey,
+        useLangKeyLayout: false,
+        prefixDefault: false,
       },
     },
     {

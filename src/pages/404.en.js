@@ -30,12 +30,12 @@ const NotFoundPage = () => (
     <Section>
       <Container>
         <HeadlineSection>
-          <Headline1>Seite nicht gefunden</Headline1>
+          <Headline1>Site not found</Headline1>
           {/* Sorry, diese Route existiert nicht. */}
-          <p>Entschuldigung, diese Seite konnte nicht gefunden werden.</p>
+          <p>Sorry, the page you&apos;re looking for does not exist.</p>
         </HeadlineSection>
 
-        <Link to="/">Zurück zur Startseite</Link>
+        <Link to="/">Back to start</Link>
       </Container>
     </Section>
   </Layout>

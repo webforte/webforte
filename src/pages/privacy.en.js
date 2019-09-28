@@ -17,11 +17,13 @@ const PrivacyPage = () => (
     <SEO title="Privacy" />
 
     <Container>
-      <Headline>Datenschutz</Headline>
+      <Headline>Privacy</Headline>
       <p>
-        <strong>Diese Seite speichert keine personenbezogenen Daten.</strong>
+        <strong>
+          This site does not store or proceed any of your data whatsoever.
+        </strong>
       </p>
-      <p>Versprochen!</p>
+      <p>Promise!</p>
     </Container>
   </Layout>
 )

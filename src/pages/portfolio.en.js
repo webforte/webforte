@@ -68,7 +68,7 @@ const PortfolioPage = ({ data }: Props) => {
 
   return (
     <Layout>
-      <SEO title="Aktuelle Arbeiten" />
+      <SEO title="Current work" />
 
       <Section>
         <Container>
@@ -96,7 +96,7 @@ const PortfolioPage = ({ data }: Props) => {
 
 export const query = graphql`
   {
-    contentfulSeite(node_locale: { eq: "de-DE" }) {
+    contentfulSeite(node_locale: { eq: "en-US" }) {
       id
       title
       lead

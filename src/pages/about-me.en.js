@@ -194,7 +194,7 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <SEO title="Erfahre etwas über mich und wie ich arbeite" />
+      <SEO title="Learn something about me and how i work." />
 
       <Container>
         <Row>
@@ -208,24 +208,23 @@ const IndexPage = () => {
               />
 
               <VitaFacts>
-                <li>Geboren und zurzeit lebend in Dresden, Deutschland.</li>
+                <li>Born and currently living in Dresden, Germany</li>
                 <li>
-                  Ich entwickele moderne Anwendungen mit Fokus auf
-                  Bedienungsfreundlichkeit, Einfachheit und einen soliden
-                  Technologie-Stack.
+                  I handcraft modern apps with focus on user friendliness,
+                  simplicity and a solid technology stack.
                 </li>
                 <li>
-                  Ich habe 6 Jahre Erfahrung in Web-Entwicklung und 3 Jahre in
-                  plattformübergreifender App-Entwicklung.
+                  I have 6 years experience in web development and 3 years in
+                  cross plattform app development.
                 </li>
               </VitaFacts>
             </Vita>
 
-            <Headline2>Meine Technologien</Headline2>
+            <Headline2>Technologies I use</Headline2>
 
             <LogoList>
               <LogoItem>
-                <a href="https://reactjs.org/" title="Zur React Webseite">
+                <a href="https://reactjs.org/" title="Go to React website">
                   <Img
                     fixed={logoReact.childImageSharp.fixed}
                     alt="React logo"
@@ -235,7 +234,7 @@ const IndexPage = () => {
               <LogoItem>
                 <a
                   href="https://facebook.github.io/react-native/"
-                  title="Zur React Native Webseite"
+                  title="Go to React Native website"
                 >
                   <Img
                     fixed={logoReactNative.childImageSharp.fixed}
@@ -244,7 +243,7 @@ const IndexPage = () => {
                 </a>
               </LogoItem>
               <LogoItem>
-                <a href="https://www.gatsbyjs.org" title="Zur Gatsby Webseite">
+                <a href="https://www.gatsbyjs.org" title="Go to Gatsby website">
                   <Img
                     fixed={logoGatsby.childImageSharp.fixed}
                     alt="Gatsby logo"
@@ -252,7 +251,7 @@ const IndexPage = () => {
                 </a>
               </LogoItem>
               <LogoItem>
-                <a href="https://nodejs.org/" title="Zur NodeJS Webseite">
+                <a href="https://nodejs.org/" title="Go to NodeJS website">
                   <Img
                     fixed={logoNode.childImageSharp.fixed}
                     alt="NodeJS logo"
@@ -260,7 +259,7 @@ const IndexPage = () => {
                 </a>
               </LogoItem>
               <LogoItem>
-                <a href="https://directus.io/" title="Zur Directus Webseite">
+                <a href="https://directus.io/" title="Go to Directus website">
                   <Img
                     fixed={logoDirectus.childImageSharp.fixed}
                     alt="Directus logo"
@@ -270,7 +269,7 @@ const IndexPage = () => {
               <LogoItem>
                 <a
                   href="https://www.contentful.com/"
-                  title="Zur Contentful Webseite"
+                  title="Go to Contentful website"
                 >
                   <Img
                     fixed={logoContentful.childImageSharp.fixed}
@@ -280,13 +279,13 @@ const IndexPage = () => {
               </LogoItem>
             </LogoList>
 
-            <Headline2>Firmen, für die ich gearbeitet habe</Headline2>
+            <Headline2>Companies I have been working with</Headline2>
 
             <LogoList>
               <LogoItem>
                 <a
                   href="https://www.wildstyle-network.com/"
-                  title="Zur Wildstyle Webseite Network"
+                  title="Go to Wildstyle website Network"
                 >
                   <Img
                     fixed={logoWsn.childImageSharp.fixed}
@@ -296,7 +295,7 @@ const IndexPage = () => {
               </LogoItem>
 
               <LogoItem>
-                <a href="https://www.mindbox.de/" title="Zur Mindbox Webseite">
+                <a href="https://www.mindbox.de/" title="Go to Mindbox website">
                   <Img
                     fixed={logoMindbox.childImageSharp.fixed}
                     alt="Mindbox Logo"
@@ -307,7 +306,7 @@ const IndexPage = () => {
               <LogoItem>
                 <a
                   href="https://www.leicht-luftig.studio/"
-                  title="Zur leicht+luftig Webseite"
+                  title="Go to leicht+luftig website"
                 >
                   <Img
                     fixed={logoLeichtLuftig.childImageSharp.fixed}
