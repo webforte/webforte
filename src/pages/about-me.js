@@ -9,6 +9,7 @@ import * as v from '../config/variables'
 import { Layout } from '../components/Layout'
 import SEO from '../components/seo'
 import { Headline1, Headline2 } from '../components/UI'
+import { Section } from '../components/UI/Group'
 import { ContactSection } from '../components/Sections'
 
 const LogoList = styled.ul`
@@ -59,7 +60,7 @@ const Vita = styled.aside`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin: 0 0 5rem;
+  /* margin: 0 0 5rem; */
 
   @media (min-width: 768px) {
     flex-wrap: nowrap;
@@ -103,32 +104,6 @@ const IndexPage = () => {
           }
         }
       }
-      logoWsn: file(
-        relativePath: { eq: "companies/logo-wildstyle-network.png" }
-      ) {
-        childImageSharp {
-          fixed(width: 300, height: 70) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-      logoMindbox: file(relativePath: { eq: "companies/logo-mindbox.png" }) {
-        childImageSharp {
-          fixed(height: 70) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-      logoLeichtLuftig: file(
-        relativePath: { eq: "companies/logo-leicht-luftig.png" }
-      ) {
-        childImageSharp {
-          fixed(width: 230, height: 70) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-
       logoContentful: file(
         relativePath: { eq: "technologies/logo-contentful.png" }
       ) {
@@ -177,19 +152,35 @@ const IndexPage = () => {
           }
         }
       }
+      allContentfulFirma(
+        filter: { showAsPartner: { eq: true }, node_locale: { eq: "en-US" } }
+      ) {
+        edges {
+          node {
+            id
+            name
+            website
+            showAsPartner
+            logo {
+              id
+              fluid(maxHeight: 70) {
+                srcWebp
+              }
+            }
+          }
+        }
+      }
     }
   `)
   const {
     me,
-    logoMindbox,
-    logoWsn,
-    logoLeichtLuftig,
     logoContentful,
     logoDirectus,
     logoGatsby,
     logoNode,
     logoReact,
     logoReactNative,
+    allContentfulFirma,
   } = data
 
   return (
@@ -199,123 +190,149 @@ const IndexPage = () => {
       <Container>
         <Row>
           <Col lg={{ size: 10, offset: 1 }}>
-            <Headline1>About me</Headline1>
+            <Section>
+              <Headline1>About me</Headline1>
 
-            <Vita>
-              <ProfileImage
-                fixed={me.childImageSharp.fixed}
-                alt="Konstantin Werner"
-              />
+              <Vita>
+                <ProfileImage
+                  fixed={me.childImageSharp.fixed}
+                  alt="Konstantin Werner"
+                />
 
-              <VitaFacts>
-                <li>Born and currently living in Dresden, Germany</li>
-                <li>
-                  I handcraft modern apps with focus on user friendliness,
-                  simplicity and a solid technology stack.
-                </li>
-                <li>
-                  I have 6 years experience in web development and 3 years in
-                  cross plattform app development.
-                </li>
-              </VitaFacts>
-            </Vita>
+                <VitaFacts>
+                  <li>Born and currently living in Dresden, Germany</li>
+                  <li>
+                    I handcraft modern apps with focus on user friendliness,
+                    simplicity and a solid technology stack.
+                  </li>
+                  <li>
+                    I have 6 years experience in web development and 3 years in
+                    cross plattform app development.
+                  </li>
+                </VitaFacts>
+              </Vita>
+            </Section>
 
-            <Headline2>Technologies I use</Headline2>
+            <Section>
+              <Headline2>Technologies I use</Headline2>
 
-            <LogoList>
-              <LogoItem>
-                <a href="https://reactjs.org/" title="Go to React website">
-                  <Img
-                    fixed={logoReact.childImageSharp.fixed}
-                    alt="React logo"
-                  />
-                </a>
-              </LogoItem>
-              <LogoItem>
-                <a
-                  href="https://facebook.github.io/react-native/"
-                  title="Go to React Native website"
-                >
-                  <Img
-                    fixed={logoReactNative.childImageSharp.fixed}
-                    alt="React Native logo"
-                  />
-                </a>
-              </LogoItem>
-              <LogoItem>
-                <a href="https://www.gatsbyjs.org" title="Go to Gatsby website">
-                  <Img
-                    fixed={logoGatsby.childImageSharp.fixed}
-                    alt="Gatsby logo"
-                  />
-                </a>
-              </LogoItem>
-              <LogoItem>
-                <a href="https://nodejs.org/" title="Go to NodeJS website">
-                  <Img
-                    fixed={logoNode.childImageSharp.fixed}
-                    alt="NodeJS logo"
-                  />
-                </a>
-              </LogoItem>
-              <LogoItem>
-                <a href="https://directus.io/" title="Go to Directus website">
-                  <Img
-                    fixed={logoDirectus.childImageSharp.fixed}
-                    alt="Directus logo"
-                  />
-                </a>
-              </LogoItem>
-              <LogoItem>
-                <a
-                  href="https://www.contentful.com/"
-                  title="Go to Contentful website"
-                >
-                  <Img
-                    fixed={logoContentful.childImageSharp.fixed}
-                    alt="Contentful logo"
-                  />
-                </a>
-              </LogoItem>
-            </LogoList>
+              <LogoList>
+                <LogoItem>
+                  <a href="https://reactjs.org/" title="Go to React website">
+                    <Img
+                      fixed={logoReact.childImageSharp.fixed}
+                      alt="React logo"
+                    />
+                  </a>
+                </LogoItem>
+                <LogoItem>
+                  <a
+                    href="https://facebook.github.io/react-native/"
+                    title="Go to React Native website"
+                  >
+                    <Img
+                      fixed={logoReactNative.childImageSharp.fixed}
+                      alt="React Native logo"
+                    />
+                  </a>
+                </LogoItem>
+                <LogoItem>
+                  <a
+                    href="https://www.gatsbyjs.org"
+                    title="Go to Gatsby website"
+                  >
+                    <Img
+                      fixed={logoGatsby.childImageSharp.fixed}
+                      alt="Gatsby logo"
+                    />
+                  </a>
+                </LogoItem>
+                <LogoItem>
+                  <a href="https://nodejs.org/" title="Go to NodeJS website">
+                    <Img
+                      fixed={logoNode.childImageSharp.fixed}
+                      alt="NodeJS logo"
+                    />
+                  </a>
+                </LogoItem>
+                <LogoItem>
+                  <a href="https://directus.io/" title="Go to Directus website">
+                    <Img
+                      fixed={logoDirectus.childImageSharp.fixed}
+                      alt="Directus logo"
+                    />
+                  </a>
+                </LogoItem>
+                <LogoItem>
+                  <a
+                    href="https://www.contentful.com/"
+                    title="Go to Contentful website"
+                  >
+                    <Img
+                      fixed={logoContentful.childImageSharp.fixed}
+                      alt="Contentful logo"
+                    />
+                  </a>
+                </LogoItem>
+              </LogoList>
+            </Section>
 
-            <Headline2>Companies I have been working with</Headline2>
+            <Section>
+              <Headline2>Companies I have been working with</Headline2>
 
-            <LogoList>
-              <LogoItem>
-                <a
-                  href="https://www.wildstyle-network.com/"
-                  title="Go to Wildstyle website Network"
-                >
-                  <Img
-                    fixed={logoWsn.childImageSharp.fixed}
-                    alt="Wildstyle Network Logo"
-                  />
-                </a>
-              </LogoItem>
+              <LogoList>
+                {allContentfulFirma.edges.map(({ node }) => {
+                  const { id, website, name, logo } = node
+                  const {
+                    fluid: { srcWebp },
+                  } = logo
 
-              <LogoItem>
-                <a href="https://www.mindbox.de/" title="Go to Mindbox website">
-                  <Img
-                    fixed={logoMindbox.childImageSharp.fixed}
-                    alt="Mindbox Logo"
-                  />
-                </a>
-              </LogoItem>
+                  return (
+                    <LogoItem key={id}>
+                      <a href={website} title={`Go to ${name} website`}>
+                        <img src={srcWebp} alt={`${name} Logo`} />
+                      </a>
+                    </LogoItem>
+                  )
+                })}
+                {/* <LogoItem>
+                  <a
+                    href="https://www.wildstyle-network.com/"
+                    title="Go to Wildstyle Network website"
+                  >
+                    <Img
+                      fixed={logoWsn.childImageSharp.fixed}
+                      alt="Wildstyle Network Logo"
+                    />
+                  </a>
+                </LogoItem>
 
-              <LogoItem>
-                <a
-                  href="https://www.leicht-luftig.studio/"
-                  title="Go to leicht+luftig website"
-                >
-                  <Img
-                    fixed={logoLeichtLuftig.childImageSharp.fixed}
-                    src=""
-                    alt="leicht+luftig Logo"
-                  />
-                </a>
-              </LogoItem>
-            </LogoList>
+                <LogoItem>
+                  <a
+                    href="https://www.mindbox.de/"
+                    title="Go to Mindbox website"
+                  >
+                    <Img
+                      fixed={logoMindbox.childImageSharp.fixed}
+                      alt="Mindbox Logo"
+                    />
+                  </a>
+                </LogoItem>
+
+                <LogoItem>
+                  <a
+                    href="https://www.leicht-luftig.studio/"
+                    title="Go to leicht+luftig website"
+                  >
+                    <Img
+                      fixed={logoLeichtLuftig.childImageSharp.fixed}
+                      src=""
+                      alt="leicht+luftig Logo"
+                    />
+                  </a>
+                </LogoItem> */}
+              </LogoList>
+            </Section>
           </Col>
         </Row>
 

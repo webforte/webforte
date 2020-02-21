@@ -24,13 +24,21 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1, .h1 {
-    font-size: 2.5rem;
+    font-size: 13vw;
     line-height: 1.4;
+
+    @media (min-width: 576px) {
+      font-size: 2.5rem;
+    }
   }
 
   h2, .h2 {
-    font-size: 2rem;
+    font-size: 10vw;
     line-height: 1.4;
+    
+    @media (min-width: 576px) {
+    font-size: 2rem;
+    }
   }
 `
 
