@@ -4,12 +4,10 @@ import * as v from '../../config/variables'
 
 export const Headline1 = styled.h1`
   font-family: ${v.fontFamilySerif};
-  margin: 2rem 0 3rem;
 `
 
 export const Headline2 = styled.h2`
   font-family: ${v.fontFamilySerif};
-  margin: 2rem 0 2rem;
 `
 
 export const Lead = styled.p`

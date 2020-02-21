@@ -26,6 +26,7 @@ const GlobalStyle = createGlobalStyle`
   h1, .h1 {
     font-size: 13vw;
     line-height: 1.4;
+    margin: 2rem 0 2rem;
 
     @media (min-width: 576px) {
       font-size: 2.5rem;
@@ -35,9 +36,16 @@ const GlobalStyle = createGlobalStyle`
   h2, .h2 {
     font-size: 10vw;
     line-height: 1.4;
+    margin: 2rem 0 1rem;
     
     @media (min-width: 576px) {
     font-size: 2rem;
+    }
+  }
+
+  ul, ol {
+    li {
+      margin-bottom: 0.75rem;
     }
   }
 `

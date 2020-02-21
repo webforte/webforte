@@ -8,8 +8,7 @@ import { Container, Row, Col } from 'reactstrap'
 import * as v from '../config/variables'
 import { Layout } from '../components/Layout'
 import SEO from '../components/seo'
-import { Headline1, Headline2 } from '../components/UI'
-import { Section } from '../components/UI/Group'
+import { Headline1, Headline2, TextContainer, Section } from '../components/UI'
 import { ContactSection } from '../components/Sections'
 
 const LogoList = styled.ul`
@@ -170,6 +169,18 @@ const IndexPage = () => {
           }
         }
       }
+      allContentfulFreund(
+        filter: { node_locale: { eq: "en-US" } }
+        sort: { fields: name, order: ASC }
+      ) {
+        edges {
+          node {
+            name
+            profession
+            website
+          }
+        }
+      }
     }
   `)
   const {
@@ -181,6 +192,7 @@ const IndexPage = () => {
     logoReact,
     logoReactNative,
     allContentfulFirma,
+    allContentfulFreund,
   } = data
 
   return (
@@ -277,8 +289,8 @@ const IndexPage = () => {
               </LogoList>
             </Section>
 
-            <Section>
-              <Headline2>Companies I have been working with</Headline2>
+            <Section id="companies">
+              <Headline2>Companies & partners</Headline2>
 
               <LogoList>
                 {allContentfulFirma.edges.map(({ node }) => {
@@ -295,43 +307,46 @@ const IndexPage = () => {
                     </LogoItem>
                   )
                 })}
-                {/* <LogoItem>
-                  <a
-                    href="https://www.wildstyle-network.com/"
-                    title="Go to Wildstyle Network website"
-                  >
-                    <Img
-                      fixed={logoWsn.childImageSharp.fixed}
-                      alt="Wildstyle Network Logo"
-                    />
-                  </a>
-                </LogoItem>
-
-                <LogoItem>
-                  <a
-                    href="https://www.mindbox.de/"
-                    title="Go to Mindbox website"
-                  >
-                    <Img
-                      fixed={logoMindbox.childImageSharp.fixed}
-                      alt="Mindbox Logo"
-                    />
-                  </a>
-                </LogoItem>
-
-                <LogoItem>
-                  <a
-                    href="https://www.leicht-luftig.studio/"
-                    title="Go to leicht+luftig website"
-                  >
-                    <Img
-                      fixed={logoLeichtLuftig.childImageSharp.fixed}
-                      src=""
-                      alt="leicht+luftig Logo"
-                    />
-                  </a>
-                </LogoItem> */}
               </LogoList>
+            </Section>
+
+            <Section id="friends">
+              <h2>Colleages & friends</h2>
+
+              <TextContainer>
+                <p>
+                  Team work is key. I think that best results can be achieved by
+                  exchanging knowledge and ideas. I am happy to be part of a
+                  strong network of independent designers, developers and
+                  project managers:
+                </p>
+                <ul>
+                  {allContentfulFreund.edges.map(({ node }) => {
+                    const { name, profession, website } = node
+
+                    return (
+                      <li>
+                        <strong>{name}</strong>
+                        {profession && (
+                          <>
+                            <br />
+                            {profession}
+                          </>
+                        )}
+                        {website && (
+                          <>
+                            {' '}
+                            —{' '}
+                            <a href={website} title={`Website of ${name}`}>
+                              Website
+                            </a>
+                          </>
+                        )}
+                      </li>
+                    )
+                  })}
+                </ul>
+              </TextContainer>
             </Section>
           </Col>
         </Row>
