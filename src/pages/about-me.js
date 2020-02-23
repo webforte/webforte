@@ -163,7 +163,8 @@ const IndexPage = () => {
             logo {
               id
               fluid(maxHeight: 70) {
-                srcWebp
+                src
+                srcSet
               }
             }
           }
@@ -296,13 +297,13 @@ const IndexPage = () => {
                 {allContentfulFirma.edges.map(({ node }) => {
                   const { id, website, name, logo } = node
                   const {
-                    fluid: { srcWebp },
+                    fluid: { src },
                   } = logo
 
                   return (
                     <LogoItem key={id}>
                       <a href={website} title={`Go to ${name} website`}>
-                        <img src={srcWebp} alt={`${name} Logo`} />
+                        <img src={src} alt={`${name} Logo`} />
                       </a>
                     </LogoItem>
                   )
