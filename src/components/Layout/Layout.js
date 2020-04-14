@@ -40,7 +40,7 @@ const Layout = ({ children, stickyHeader }: Props) => (
         }
       }
     `}
-    render={data => (
+    render={(data) => (
       <>
         <GlobalStyle />
         <Header

@@ -122,7 +122,7 @@ type Props = {
 
 const ReferencesList = ({ references }: Props) => (
   <StyledList>
-    {references.map(r => (
+    {references.map((r) => (
       <Reference key={r.id}>
         <ImageWrap
           href={r.projectWebsite}
@@ -151,7 +151,7 @@ const ReferencesList = ({ references }: Props) => (
             <Column>
               <ColTitle>{r.skills.length > 1 ? 'Skills' : 'Skill'}</ColTitle>
               <ColText>
-                {r.skills.map(skill => (
+                {r.skills.map((skill) => (
                   <span key={skill.id}>{skill.name}</span>
                 ))}
               </ColText>
@@ -162,7 +162,7 @@ const ReferencesList = ({ references }: Props) => (
                 {r.platforms.length > 1 ? 'Platforms' : 'Platform'}
               </ColTitle>
               <ColText>
-                {r.platforms.map(platform => (
+                {r.platforms.map((platform) => (
                   <span key={platform.id}>{platform.title}</span>
                 ))}
               </ColText>
