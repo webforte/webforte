@@ -177,6 +177,7 @@ const IndexPage = () => {
       ) {
         edges {
           node {
+            id
             name
             profession
             website
@@ -324,10 +325,10 @@ const IndexPage = () => {
                 </p>
                 <ul>
                   {allContentfulFreund.edges.map(({ node }) => {
-                    const { name, profession, website } = node
+                    const { name, profession, website, id } = node
 
                     return (
-                      <li>
+                      <li key={id}>
                         <strong>{name}</strong>
                         {profession && (
                           <>
