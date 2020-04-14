@@ -50,6 +50,7 @@ const LogoItem = styled.li`
       margin: 0.5rem 1rem;
     }
     img {
+      height: 70px;
     }
   }
 `
@@ -162,7 +163,7 @@ const IndexPage = () => {
             showAsPartner
             logo {
               id
-              fluid(maxHeight: 70) {
+              fluid(maxHeight: 140) {
                 src
                 srcSet
               }
