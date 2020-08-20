@@ -12,7 +12,12 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-flow`,
-    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        exclude: [`/portfolio/*`, `/work/*`],
+      },
+    },
     `gatsby-plugin-sass`,
     // `gatsby-plugin-remove-generator`,
     {
