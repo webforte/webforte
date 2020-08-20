@@ -61,10 +61,12 @@ const HeadlineSection = styled.header`
 
 const PortfolioPage = ({ data }: Props) => {
   const {
-    contentfulSeite: { lead, subtitle, sections },
+    contentfulSeite: { lead, subtitle /* , sections */ },
+    allContentfulReferenz: { edges },
+    // contentfulPortfolio: { name, id },
   } = data
 
-  const { references } = sections[0]
+  const references = edges.map((r) => r.node)
 
   return (
     <Layout>
@@ -95,7 +97,48 @@ const PortfolioPage = ({ data }: Props) => {
 }
 
 export const query = graphql`
-  {
+  query($id: String!) {
+    contentfulPortfolio(id: { eq: $id }) {
+      name
+      id
+    }
+
+    allContentfulReferenz {
+      edges {
+        node {
+          id
+          id
+          name
+          subline
+          description
+          isHighlight
+          private
+          projectWebsite
+          year
+          projectWebsite
+          skills {
+            id
+            name
+          }
+          platforms {
+            id
+            title
+          }
+          via {
+            id
+            name
+            website
+          }
+          bild {
+            id
+            fluid {
+              src
+            }
+          }
+        }
+      }
+    }
+
     contentfulSeite {
       id
       title
