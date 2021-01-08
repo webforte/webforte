@@ -109,6 +109,12 @@ const ColText = styled.div`
   color: ${v.grayDark};
   font-size: 0.8rem;
 
+  a {
+    color: inherit;
+    border-color: inherit;
+    border-width: 1px;
+  }
+
   > span {
     display: block;
   }
@@ -176,7 +182,9 @@ const ReferencesList = ({ references }: Props) => (
             {r.via && (
               <Column>
                 <ColTitle>Via</ColTitle>
-                <ColText>{r.via.name}</ColText>
+                <ColText>
+                  <a href={r.via.website}>{r.via.name}</a>
+                </ColText>
               </Column>
             )}
           </Columns>
