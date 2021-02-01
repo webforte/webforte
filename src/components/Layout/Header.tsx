@@ -1,11 +1,10 @@
-// @flow
 import { Link } from 'gatsby'
-import React from 'react'
+import * as React from 'react'
 
 import styled from 'styled-components'
 import { Container } from 'reactstrap'
 
-const StyledHeader = styled.header`
+const StyledHeader = styled.header<{ stickyHeader?: Boolean }>`
   height: 70px;
   padding: 1rem 0;
   display: flex;
@@ -61,12 +60,9 @@ const MenuItem = styled.li`
   }
 `
 
-type Props = {
-  // siteTitle: string,
-  stickyHeader: boolean,
-}
-
 const webforteLogo = require('../../images/webforte-logo.svg')
+
+type Props = { stickyHeader?: Boolean }
 
 const Header = ({ stickyHeader }: Props) => (
   <StyledHeader stickyHeader={stickyHeader}>
@@ -99,5 +95,6 @@ const Header = ({ stickyHeader }: Props) => (
     </Container>
   </StyledHeader>
 )
+
 
 export default Header

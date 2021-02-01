@@ -1,4 +1,3 @@
-// @flow
 import React from 'react'
 import { graphql } from 'gatsby'
 
@@ -13,7 +12,7 @@ import { ReferencesList } from '../components/ReferencesList'
 import { ContactSection } from '../components/Sections'
 
 // import Image from '../components/Image'
-import SEO from '../components/seo'
+import SEO from '../components/seo.tsx'
 
 type Props = {
   data: Object,

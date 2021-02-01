@@ -123,12 +123,12 @@ const ColText = styled.div`
 // const slug = (text: string) => text.replace(/\s/g, '-').toLocaleLowerCase()
 
 type Props = {
-  references: Array<Object>,
+  references: Array<unknown>
 }
 
 const ReferencesList = ({ references }: Props) => (
   <StyledList>
-    {references.map((r) => (
+    {references.map((r: unknown) => (
       <Reference key={r.id}>
         <ImageWrap
           href={r.projectWebsite}

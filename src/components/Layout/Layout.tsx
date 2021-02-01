@@ -25,12 +25,12 @@ const Container = styled.div`
 `
 
 type Props = {
-  children: any,
-  stickyHeader: boolean,
+  children: any
+  stickyHeader: Boolean
 }
 
 const Layout = ({ children, stickyHeader }: Props) => (
-  <StaticQuery
+  <StaticQuery 
     query={graphql`
       query SiteTitleQuery {
         site {

@@ -11,15 +11,13 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
-    `gatsby-plugin-flow`,
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         exclude: [`/portfolio/*`, `/work/*`],
       },
     },
-    `gatsby-plugin-sass`,
-    // `gatsby-plugin-remove-generator`,
+    `gatsby-plugin-sass`, // `gatsby-plugin-remove-generator`,
     {
       resolve: `gatsby-source-contentful`,
       options: {
@@ -31,18 +29,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-eslint',
-      options: {
-        test: /\.js$|\.jsx$/,
-        exclude: /(node_modules|cache|public)/,
-        options: {
-          emitWarning: true,
-          failOnError: false,
-        },
+        path: path.join(__dirname, `src`, `images`),
       },
     },
     `gatsby-transformer-sharp`,
@@ -58,16 +45,9 @@ module.exports = {
         display: `minimal-ui`,
         icon: `src/images/webforte-logo.svg`, // This path is relative to the root of the site.
       },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: path.join(__dirname, `src`, `images`),
-      },
-    },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
+    }, // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
+    'gatsby-plugin-typescript',
   ],
 }

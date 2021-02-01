@@ -23,7 +23,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
   const customPortfolioTemplate = path.resolve(
-    `./src/templates/custom-portfolio.js`
+    `./src/templates/custom-portfolio.tsx`
   )
   result.data.allContentfulPortfolio.edges.forEach((edge) => {
     createPage({

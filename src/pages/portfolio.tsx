@@ -1,4 +1,3 @@
-// @flow
 import React from 'react'
 import { graphql } from 'gatsby'
 
@@ -14,10 +13,6 @@ import { ContactSection } from '../components/Sections'
 
 // import Image from '../components/Image'
 import SEO from '../components/seo'
-
-type Props = {
-  data: Object,
-}
 
 const Section = styled.div`
   padding: 2rem 0;
@@ -58,6 +53,10 @@ const HeadlineSection = styled.header`
     font-size: 3rem;
   } */
 `
+
+type Props = {
+  data: unknown
+}
 
 const PortfolioPage = ({ data }: Props) => {
   const {

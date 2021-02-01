@@ -3,17 +3,22 @@ const fs = require('fs')
 const prettierOptions = JSON.parse(fs.readFileSync('./.prettierrc', 'utf8'))
 
 module.exports = {
-  parser: 'babel-eslint',
+  parser: '@typescript-eslint/parser',
   globals: {
     __PATH_PREFIX__: true,
   },
-  plugins: ['flowtype', 'prettier'],
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
+  plugins: ['@typescript-eslint', 'prettier'],
   extends: [
-    'plugin:flowtype/recommended',
-    'plugin:flowtype-errors/recommended',
     'airbnb',
+    'plugin:@typescript-eslint/recommended',
     'prettier',
     'prettier/react',
+    'prettier/@typescript-eslint',
   ],
   parserOptions: {
     ecmaVersion: 7,
