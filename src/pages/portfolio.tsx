@@ -64,6 +64,9 @@ const PortfolioPage = ({ data }: Props) => {
   } = data
 
   const { references } = sections[0]
+  const orderedReferences = references.sort((a, b) => {
+    return b.year - a.year
+  }).sort((a, b) => b.isHighlight - a.isHighlight)
 
   return (
     <Layout>
@@ -84,7 +87,7 @@ const PortfolioPage = ({ data }: Props) => {
             {/* <p>Selected projects</p> */}
           </HeadlineSection>
 
-          <ReferencesList references={references} />
+          <ReferencesList references={orderedReferences} />
 
           <ContactSection />
         </Container>
