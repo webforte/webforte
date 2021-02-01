@@ -12,11 +12,7 @@ import { ReferencesList } from '../components/ReferencesList'
 import { ContactSection } from '../components/Sections'
 
 // import Image from '../components/Image'
-import SEO from '../components/seo.tsx'
-
-type Props = {
-  data: Object,
-}
+import SEO from '../components/seo'
 
 const Section = styled.div`
   padding: 2rem 0;
@@ -58,6 +54,10 @@ const HeadlineSection = styled.header`
   } */
 `
 
+type Props = {
+  data: unknown,
+}
+
 const PortfolioPage = ({ data }: Props) => {
   const {
     contentfulSeite: { lead, subtitle /* , sections */ },
@@ -66,6 +66,9 @@ const PortfolioPage = ({ data }: Props) => {
   } = data
 
   const references = edges.map((r) => r.node)
+  const orderedReferences = references.sort((a, b) => {
+    return b.year - a.year
+  }).sort((a, b) => b.isHighlight - a.isHighlight)
 
   return (
     <Layout>
@@ -86,7 +89,7 @@ const PortfolioPage = ({ data }: Props) => {
             {/* <p>Selected projects</p> */}
           </HeadlineSection>
 
-          <ReferencesList references={references} />
+          <ReferencesList references={orderedReferences} />
 
           <ContactSection />
         </Container>
@@ -102,7 +105,7 @@ export const query = graphql`
       id
     }
 
-    allContentfulReferenz {
+    allContentfulReferenz(filter: { node_locale: { eq: "en-US" } }) {
       edges {
         node {
           id

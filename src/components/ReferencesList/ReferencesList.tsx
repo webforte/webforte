@@ -71,6 +71,8 @@ const Title = styled.h2`
   text-transform: uppercase;
   font-weight: 700;
   margin: 0 0 1.5rem;
+  display: flex;
+  align-items: center;
 `
 
 const Subline = styled.p`
@@ -120,6 +122,26 @@ const ColText = styled.div`
   }
 `
 
+const HighlightFlag = styled.span`
+  display: flex;
+  color: rgb(251, 175, 23);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  border: 2px solid rgb(250, 203, 38);
+  /* background: rgba(0,0,0,0.8); */
+  padding: 0;
+  margin-right: 0.5rem;
+  border-radius: 15px;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  user-select: none;
+`
+
 // const slug = (text: string) => text.replace(/\s/g, '-').toLocaleLowerCase()
 
 type Props = {
@@ -147,7 +169,12 @@ const ReferencesList = ({ references }: Props) => (
         </ImageWrap>
 
         <Information>
-          <Title>{r.name}</Title>
+          <Title>
+            {r.isHighlight && (
+              <HighlightFlag title="Highlight">🌟</HighlightFlag>
+            )}
+            {r.name}
+          </Title>
           {/* <Year>{r.year}</Year> */}
 
           <Subline>{r.subline}</Subline>
