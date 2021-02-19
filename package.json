@@ -59,7 +59,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
-    "flow-bin": "^0.143.1",
+    "flow-bin": "^0.145.0",
     "gatsby-plugin-styled-components": "^3.0.4",
     "prettier": "^2.0.4"
   },
