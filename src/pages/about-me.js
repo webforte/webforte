@@ -321,7 +321,7 @@ const IndexPage = () => {
                   Team work is key. I think that best results can be achieved by
                   exchanging knowledge and ideas. I am happy to be part of a
                   strong network of independent designers, developers and
-                  project managers:
+                  consultants:
                 </p>
                 <ul>
                   {allContentfulFreund.edges.map(({ node }) => {
