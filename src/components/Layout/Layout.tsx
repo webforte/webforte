@@ -12,8 +12,8 @@ const Container = styled.div`
   min-height: 550px;
 
   a:not(.no-underline):not(.border-none) {
-    color: ${v.black};
-    border-bottom: 2px solid ${v.black};
+    color: ${v.grayDarker};
+    border-bottom: 2px solid ${v.grayDarker};
 
     &:hover,
     &:focus {

@@ -18,7 +18,7 @@ const FooterWrap = styled.footer`
   }
 
   strong {
-    color: ${v.black};
+    color: ${v.grayDarker};
     text-transform: uppercase;
   }
 

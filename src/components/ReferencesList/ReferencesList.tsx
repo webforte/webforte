@@ -65,6 +65,7 @@ const Reference = styled.li`
 
 const Title = styled.h2`
   font-family: ${v.fontFamilySansSerif};
+  color: ${v.black};
   font-size: 1rem;
   /* line-height: 1; */
   text-transform: uppercase;
@@ -75,7 +76,7 @@ const Title = styled.h2`
 `
 
 const Subline = styled.p`
-  color: ${v.black};
+  color: ${v.grayDarker};
   font-weight: bold;
   margin: 0;
 `

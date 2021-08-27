@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    color: ${v.black};
+    color: ${v.grayDarker};
   }
 
   a {

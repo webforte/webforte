@@ -17,7 +17,7 @@ export const BigLink = styled.a`
   display: inline-block;
   font-weight: bold;
   margin: 0.25rem 0;
-  color: ${v.black};
+  color: ${v.grayDarker};
   border-bottom: 2px solid ${v.cyan} !important;
   transform: perspective(1px) translateZ(0);
   /* box-shadow: 0 0 1px rgba(0, 0, 0, 0); */

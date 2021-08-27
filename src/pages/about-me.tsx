@@ -7,7 +7,7 @@ import { Container, Row, Col } from 'reactstrap'
 import * as v from '../config/variables'
 import { Layout } from '../components/Layout'
 import SEO from '../components/seo'
-import { Headline1, Headline2, TextContainer, Section } from '../components/UI'
+import { Headline1, TextContainer, Section } from '../components/UI'
 import { ContactSection } from '../components/Sections'
 
 const technologies = [
@@ -160,6 +160,13 @@ const IndexPage = () => {
             name
             profession
             website
+            image {
+              id
+              fixed(width: 90, height: 90) {
+                src
+                srcSet
+              }
+            }
           }
         }
       }
@@ -199,7 +206,7 @@ const IndexPage = () => {
             </Section>
 
             <Section>
-              <Headline2>Technologies I use</Headline2>
+              <h2 className="mb-8">Technologies I use</h2>
 
               <ul className="grid gap-5 grid-cols-2 sm:grid-cols-3">
                 {technologies.map(({ id, name, website, image }) => (
@@ -220,7 +227,7 @@ const IndexPage = () => {
             </Section>
 
             <Section id="companies">
-              <Headline2>Companies & partners</Headline2>
+              <h2 className="mb-8">Companies & partners</h2>
 
               <ul className="grid gap-5 grid-cols-2 sm:grid-cols-3">
                 {allContentfulFirma.edges.map(({ node }) => {
@@ -252,7 +259,7 @@ const IndexPage = () => {
             </Section>
 
             <Section id="friends">
-              <h2>Colleages & friends</h2>
+              <h2 className="mb-8">Colleages & friends</h2>
 
               <TextContainer>
                 <p>
@@ -261,33 +268,46 @@ const IndexPage = () => {
                   strong network of independent designers, developers and
                   consultants:
                 </p>
-                <ul>
-                  {allContentfulFreund.edges.map(({ node }) => {
-                    const { name, profession, website, id } = node
-
-                    return (
-                      <li key={id}>
-                        <strong>{name}</strong>
-                        {profession && (
-                          <>
-                            <br />
-                            {profession}
-                          </>
-                        )}
-                        {website && (
-                          <>
-                            {' '}
-                            —{' '}
-                            <a href={website} title={`Website of ${name}`}>
-                              Website
-                            </a>
-                          </>
-                        )}
-                      </li>
-                    )
-                  })}
-                </ul>
               </TextContainer>
+
+              <ul className="grid grid-cols-1 my-5 gap-5 sm:grid-cols-2">
+                {allContentfulFreund.edges.map(({ node }) => {
+                  const { name, profession, website, id, image } = node
+
+                  return (
+                    <div
+                      key={id}
+                      className="relative rounded-lg border border-gray-500 bg-white px-6 py-3 shadow-sm flex items-center space-x-3 transition transform duration-200 hover:shadow-lg hover:scale-105 hover:border-gray-700 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-brand"
+                    >
+                      {image && (
+                        <div className="flex-shrink-0">
+                          <img
+                            className="h-10 w-10 rounded-full"
+                            src={image?.fixed?.src}
+                            alt=""
+                          />
+                        </div>
+                      )}
+                      <div className="flex-1 min-w-0">
+                        <a href={website} className="focus:outline-none">
+                          <span
+                            className="absolute inset-0"
+                            aria-hidden="true"
+                          />
+                          <p className="text-sm font-bold text-gray-600 mb-0">
+                            {name}
+                          </p>
+                          {profession && (
+                            <p className="text-sm text-gray-500 truncate mb-0">
+                              {profession}
+                            </p>
+                          )}
+                        </a>
+                      </div>
+                    </div>
+                  )
+                })}
+              </ul>
             </Section>
           </Col>
         </Row>
