@@ -1,12 +1,11 @@
-// @flow
 import React from 'react'
+import { StaticImage } from 'gatsby-plugin-image'
 // import { Link } from 'gatsby'
 import styled from 'styled-components'
 
 import { Container as BsContainer } from 'reactstrap'
 import { Link } from 'gatsby'
 import { Layout } from '../components/Layout'
-// import Image from '../components/Image'
 import SEO from '../components/seo'
 import { BigLink } from '../components/UI'
 
@@ -31,12 +30,6 @@ const Lead = styled.h1`
   width: 100%;
 `
 
-// const ProfileImage = styled.img`
-//   width: 100px;
-//   border-radius: 50%;
-//   margin-bottom: 2rem;
-// `
-
 const Content = styled.div`
   height: 100%;
   display: flex;
@@ -50,23 +43,6 @@ const Content = styled.div`
   }
 `
 
-const Me = styled.div`
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50%;
-  height: 100%;
-  background-image: url(${portrait});
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: right top;
-
-  @media screen and (min-width: 576px) {
-    display: block;
-  }
-`
-
 const Container = styled(BsContainer)`
   height: 100%;
 `
@@ -76,7 +52,13 @@ const IndexPage = () => (
     <SEO title="Modern web and app development" />
 
     <Section>
-      <Me />
+      <div className="absolute top-0 right-0 w-1/2 h-full z-10">
+        <StaticImage
+          src="../images/portrait.jpg"
+          alt="Konstantin Werner"
+          className="w-full h-full"
+        />
+      </div>
 
       <Container>
         <Content>

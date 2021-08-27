@@ -10,6 +10,11 @@ const StyledHeader = styled.header<{ stickyHeader?: Boolean }>`
   display: flex;
   align-items: center;
 
+  @media (min-width: 576px) {
+    height: 90px;
+    padding: 2rem 0;
+  }
+
   ${({ stickyHeader }) =>
     stickyHeader &&
     `
@@ -60,7 +65,7 @@ const MenuItem = styled.li`
   }
 `
 
-const webforteLogo = require('../../images/webforte-logo.svg')
+import webforteLogo from '../../images/webforte-logo.svg'
 
 type Props = { stickyHeader?: Boolean }
 
@@ -69,7 +74,7 @@ const Header = ({ stickyHeader }: Props) => (
     <Container>
       <Nav>
         <Link to="/" title="Zur Startseite">
-          <Logo src={webforteLogo} alt="webƒorte" />
+          <Logo src={webforteLogo} alt="Webforte" />
         </Link>
 
         <MenuList>
@@ -95,6 +100,5 @@ const Header = ({ stickyHeader }: Props) => (
     </Container>
   </StyledHeader>
 )
-
 
 export default Header

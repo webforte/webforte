@@ -1,4 +1,3 @@
-// @flow
 import React from 'react'
 // import { graphql, useStaticQuery } from 'gatsby'
 // import Img from 'gatsby-image'
@@ -10,7 +9,7 @@ import { Layout } from '../components/Layout'
 import SEO from '../components/seo'
 import { Headline1 } from '../components/UI'
 
-const personText = require('../images/illustrations/person-text.svg')
+import personText from '../images/illustrations/person-text.svg'
 
 const PersonText = styled.img`
   width: 300px;
@@ -56,8 +55,12 @@ const IndexPage = () => {
           /> */}
           </Col>
 
-          <Col lg={{ size: 4 }}>
-            <PersonText src={personText} alt="Let's chat" />
+          <Col lg={{ size: 5 }}>
+            <img
+              src={personText}
+              alt="Let's chat"
+              className="max-w-72 my-8 sm:mb-8"
+            />
           </Col>
         </Row>
       </Container>

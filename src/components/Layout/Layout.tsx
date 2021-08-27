@@ -1,4 +1,3 @@
-// @flow
 import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
@@ -12,7 +11,7 @@ import Footer from './Footer'
 const Container = styled.div`
   min-height: 550px;
 
-  a {
+  a:not(.no-underline):not(.border-none) {
     color: ${v.black};
     border-bottom: 2px solid ${v.black};
 
@@ -26,11 +25,11 @@ const Container = styled.div`
 
 type Props = {
   children: any
-  stickyHeader: Boolean
+  stickyHeader?: Boolean
 }
 
 const Layout = ({ children, stickyHeader }: Props) => (
-  <StaticQuery 
+  <StaticQuery
     query={graphql`
       query SiteTitleQuery {
         site {

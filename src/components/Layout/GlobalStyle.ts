@@ -1,4 +1,3 @@
-// @flow
 import { createGlobalStyle } from 'styled-components'
 import * as v from '../../config/variables'
 

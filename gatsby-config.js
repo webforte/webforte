@@ -2,6 +2,11 @@ const path = require(`path`)
 // const languages = require('./src/config/languages')
 
 module.exports = {
+  flags: {
+    FAST_DEV: true,
+    PARALLEL_SOURCING: true,
+    LMDB_STORE: true,
+  },
   siteMetadata: {
     siteUrl: 'https://www.webforte.io',
     title: `Konstantin Werner`,
@@ -14,10 +19,18 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        exclude: [`/portfolio/*`, `/work/*`],
+        excludes: [`/portfolio/*`, `/work/*`],
       },
     },
-    `gatsby-plugin-sass`, // `gatsby-plugin-remove-generator`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        postCssPlugins: [
+          require('tailwindcss'),
+          require('./tailwind.config.js'), // Optional: Load custom Tailwind CSS configuration
+        ],
+      },
+    },
     {
       resolve: `gatsby-source-contentful`,
       options: {
@@ -34,6 +47,7 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
