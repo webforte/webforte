@@ -1,5 +1,13 @@
 const path = require(`path`)
-// const languages = require('./src/config/languages')
+const activeEnv =
+  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || 'development'
+
+console.log(`Using environment config: '${activeEnv}'`) // eslint-disable-line no-console
+
+// eslint-disable-next-line
+require('dotenv').config({
+  path: `.env.${activeEnv}`,
+})
 
 module.exports = {
   flags: {
@@ -59,7 +67,15 @@ module.exports = {
         display: `minimal-ui`,
         icon: `src/images/webforte-logo.svg`, // This path is relative to the root of the site.
       },
-    }, // this (optional) plugin enables Progressive Web App + Offline functionality
+    },
+    {
+      resolve: `gatsby-source-formium`,
+      options: {
+        projectId: process.env.GATSBY_PROJECT_FORMIUM_PROJECTID,
+        accessToken: process.env.GATSBY_FORMIUM_TOKEN,
+      },
+    },
+    // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
     'gatsby-plugin-typescript',

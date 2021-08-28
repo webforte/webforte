@@ -15,6 +15,8 @@
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
   "dependencies": {
+    "@formium/client": "^0.1.4",
+    "@formium/react": "^0.2.0",
     "@typescript-eslint/eslint-plugin": "^4.14.2",
     "@typescript-eslint/parser": "^4.14.2",
     "autoprefixer": "^10.3.3",
@@ -34,6 +36,7 @@
     "gatsby-plugin-typescript": "^3.12.0",
     "gatsby-source-contentful": "^5.12.0",
     "gatsby-source-filesystem": "^3.12.0",
+    "gatsby-source-formium": "^0.2.0",
     "gatsby-transformer-sharp": "^3.12.0",
     "intl": "^1.2.5",
     "node-sass": "^6.0.1",
@@ -42,6 +45,7 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.0.0",
     "react-intl": "^5.6.7",
+    "react-markdown": "^7.0.1",
     "reactstrap": "^8.0.0",
     "styled-components": "^5.0.1",
     "tailwindcss": "^2.2.8",
@@ -51,6 +55,7 @@
   "license": "UNLICENSED",
   "devDependencies": {
     "@types/styled-components": "^5.1.7",
+    "assert": "^2.0.0",
     "babel-eslint": "^10.1.0",
     "cross-env": "^7.0.3",
     "eslint-config-airbnb": "^18.0.1",

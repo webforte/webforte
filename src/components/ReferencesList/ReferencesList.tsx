@@ -209,9 +209,11 @@ const ReferencesList = ({ references }: Props) => (
             {r.via && (
               <Column>
                 <ColTitle>Via</ColTitle>
-                <ColText>
-                  <a href={r.via.website}>{r.via.name}</a>
-                </ColText>
+                <div style={{ fontSize: '0.8rem' }}>
+                  <a href={r.via.website} target="_blank">
+                    {r.via.name}
+                  </a>
+                </div>
               </Column>
             )}
           </Columns>
