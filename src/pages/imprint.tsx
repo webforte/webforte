@@ -2,7 +2,6 @@ import React from 'react'
 // import { Link } from 'gatsby'
 import styled from 'styled-components'
 
-import { Container } from 'reactstrap'
 import { Layout } from '../components/Layout'
 // import { } from '../components/UI'
 import SEO from '../components/seo'
@@ -15,7 +14,7 @@ const ImpressumPage = () => (
   <Layout>
     <SEO title="Impressum" />
 
-    <Container>
+    <div className="px-3 sm:px-0 mx-auto sm:max-w-xl md:max-w-2xl lg:max-w-3xl">
       <Headline>Impressum</Headline>
       <p>
         <strong>Angaben gemäß § 5 TMG</strong>
@@ -39,7 +38,7 @@ const ImpressumPage = () => (
         Ich bin nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor
         einer Verbraucherschlichtungsstelle teilzunehmen.
       </p>
-    </Container>
+    </div>
   </Layout>
 )
 

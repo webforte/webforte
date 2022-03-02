@@ -2,7 +2,6 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 
-import { Container, Row, Col } from 'reactstrap'
 // import * as v from '../config/variables'
 import { Layout } from '../components/Layout'
 import SEO from '../components/seo'

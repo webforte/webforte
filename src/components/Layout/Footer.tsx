@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
-import { Container } from 'reactstrap'
 
 import * as v from '../../config/variables'
 
@@ -59,7 +58,7 @@ const Footer = () => {
 
   return (
     <FooterWrap>
-      <Container>
+      <div className="px-3 sm:px-0 mx-auto sm:max-w-xl md:max-w-2xl lg:max-w-3xl">
         <FooterRow>
           <Col sm={{ size: '4' }}>
             <p>
@@ -103,7 +102,7 @@ const Footer = () => {
 
         {/* <div style={{width: "auto !important", minWidth: '375px', maxWidth: '415px', height: '415px'}}>
         <iframe style={{width: '100%', height: '100%'}} frameBorder="0" scrolling="no" src="https://www.stadtradeln.de/fileadmin/radelkalender/embed/radelmeter-team.php?sr_team_id=391620" title="Stadtradeln"/></div> */}
-      </Container>
+      </div>
     </FooterWrap>
   )
 }

@@ -47,7 +47,9 @@ const Layout = ({ children, stickyHeader }: Props) => (
           stickyHeader={stickyHeader}
         />
 
-        <Container>{children}</Container>
+        <div className="px-3 sm:px-0 mx-auto sm:max-w-xl md:max-w-2xl lg:max-w-3xl">
+          {children}
+        </div>
 
         <Footer />
       </>

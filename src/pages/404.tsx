@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { Container } from 'reactstrap'
 import styled from 'styled-components'
 
 import { Layout } from '../components/Layout'
@@ -27,7 +26,7 @@ const NotFoundPage = () => (
     <SEO title="Site not found" />
 
     <Section>
-      <Container>
+      <div className="px-3 sm:px-0 mx-auto sm:max-w-xl md:max-w-2xl lg:max-w-3xl">
         <HeadlineSection>
           <Headline1>Site not found</Headline1>
           {/* Sorry, diese Route existiert nicht. */}
@@ -35,7 +34,7 @@ const NotFoundPage = () => (
         </HeadlineSection>
 
         <Link to="/">Back to start</Link>
-      </Container>
+      </div>
     </Section>
   </Layout>
 )

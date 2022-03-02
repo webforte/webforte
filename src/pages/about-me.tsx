@@ -3,7 +3,6 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 
-import { Container, Row, Col } from 'reactstrap'
 import * as v from '../config/variables'
 import { Layout } from '../components/Layout'
 import SEO from '../components/seo'
@@ -142,147 +141,143 @@ const IndexPage = ({ data }) => {
     <Layout>
       <SEO title="Learn something about me and how i work." />
 
-      <Container>
-        <Row>
-          <Col lg={{ size: 10, offset: 1 }}>
-            <Section>
-              <Headline1>About me</Headline1>
+      <div className="px-3 sm:px-0 mx-auto sm:max-w-xl md:max-w-2xl lg:max-w-3xl">
+        <Section>
+          <Headline1>About me</Headline1>
 
-              <Vita>
-                <StaticImage
-                  src="../images/me.jpg"
-                  alt="Konstantin Werner"
-                  placeholder="dominantColor"
-                  className="w-80 rounded-full mb-8 sm:mb-0 sm:mr-8 transition duration-200 ease-in-out hover:scale-105 shadow-xl hover:shadow-2xl"
-                />
+          <Vita>
+            <div>
+              <StaticImage
+                src="../images/konstantin.jpg"
+                alt="Konstantin Werner"
+                placeholder="dominantColor"
+                width={500}
+                height={500}
+                className="rounded-full mb-8 sm:mb-0 sm:mr-8 transition duration-200 ease-in-out hover:scale-105 shadow-xl hover:shadow-2xl"
+              />
+            </div>
 
-                <VitaFacts>
-                  <li>Born and currently living in Dresden, Germany</li>
-                  <li>
-                    I handcraft modern apps with focus on user friendliness,
-                    simplicity and a solid technology stack.
-                  </li>
-                  <li>
-                    I have over 9 years experience in frontend development and 6
-                    years in cross plattform mobile development.
-                  </li>
-                </VitaFacts>
-              </Vita>
-            </Section>
+            <VitaFacts>
+              <li>Born and currently living in Dresden, Germany</li>
+              <li>
+                I handcraft modern apps with focus on user friendliness,
+                simplicity and a solid technology stack.
+              </li>
+              <li>
+                I have over 9 years experience in frontend development and 6
+                years in cross plattform mobile development.
+              </li>
+            </VitaFacts>
+          </Vita>
+        </Section>
 
-            <Section>
-              <h2 className="mb-8">Technologies I use</h2>
+        <Section>
+          <h2 className="mb-8">Technologies I use</h2>
 
-              <ul className="grid gap-5 grid-cols-2 sm:grid-cols-3">
-                {technologies.map(({ id, name, website, image }) => (
-                  <li
-                    key={id}
-                    className="flex justify-center items-center transition filter grayscale hover:grayscale-0 hover:scale-105"
+          <ul className="grid gap-5 grid-cols-2 sm:grid-cols-3">
+            {technologies.map(({ id, name, website, image }) => (
+              <li
+                key={id}
+                className="flex justify-center items-center transition filter grayscale hover:grayscale-0 hover:scale-105"
+              >
+                <a
+                  href={website}
+                  title={`Go to ${name} website`}
+                  className="no-underline"
+                >
+                  {image}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </Section>
+
+        <Section id="companies">
+          <h2 className="mb-8">Companies & partners</h2>
+
+          <ul className="grid gap-5 grid-cols-2 sm:grid-cols-3">
+            {allContentfulFirma.edges.map(({ node }) => {
+              const { id, website, name, logo } = node
+
+              return (
+                <li
+                  key={id}
+                  className="flex justify-center items-center transition filter grayscale hover:grayscale-0 hover:scale-105"
+                >
+                  <a
+                    href={website}
+                    title={`Go to ${name} website`}
+                    className="no-underline"
                   >
-                    <a
-                      href={website}
-                      title={`Go to ${name} website`}
-                      className="no-underline"
-                    >
-                      {image}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </Section>
+                    <GatsbyImage
+                      image={getImage(logo.gatsbyImageData)}
+                      alt={`${name} Logo`}
+                      className="max-h-14"
+                    />
+                  </a>
+                </li>
+              )
+            })}
+          </ul>
+        </Section>
 
-            <Section id="companies">
-              <h2 className="mb-8">Companies & partners</h2>
+        <Section id="friends">
+          <h2 className="mb-8">Colleages & friends</h2>
 
-              <ul className="grid gap-5 grid-cols-2 sm:grid-cols-3">
-                {allContentfulFirma.edges.map(({ node }) => {
-                  const { id, website, name, logo } = node
+          <TextContainer>
+            <p>
+              Team work is key. I think that best results can be achieved by
+              exchanging knowledge and ideas. I am happy to be part of a strong
+              network of independent designers, developers and consultants:
+            </p>
+          </TextContainer>
 
-                  return (
-                    <li
-                      key={id}
-                      className="flex justify-center items-center transition filter grayscale hover:grayscale-0 hover:scale-105"
-                    >
-                      <a
-                        href={website}
-                        title={`Go to ${name} website`}
-                        className="no-underline"
-                      >
-                        <GatsbyImage
-                          image={getImage(logo.gatsbyImageData)}
-                          alt={`${name} Logo`}
-                          className="max-h-14"
-                        />
-                      </a>
-                    </li>
-                  )
-                })}
-              </ul>
-            </Section>
+          <ul className="grid grid-cols-1 my-5 gap-5 sm:grid-cols-2">
+            {allContentfulFreund.edges.map(({ node }) => {
+              const { name, profession, website, id, image } = node
 
-            <Section id="friends">
-              <h2 className="mb-8">Colleages & friends</h2>
-
-              <TextContainer>
-                <p>
-                  Team work is key. I think that best results can be achieved by
-                  exchanging knowledge and ideas. I am happy to be part of a
-                  strong network of independent designers, developers and
-                  consultants:
-                </p>
-              </TextContainer>
-
-              <ul className="grid grid-cols-1 my-5 gap-5 sm:grid-cols-2">
-                {allContentfulFreund.edges.map(({ node }) => {
-                  const { name, profession, website, id, image } = node
-
-                  return (
-                    <div
-                      key={id}
-                      className="relative rounded-lg border border-gray-500 bg-white px-6 py-3 shadow-sm flex items-center space-x-3 transition duration-200 hover:shadow-lg hover:scale-105 hover:border-gray-700 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-brand"
-                    >
-                      {image && (
-                        <div className="flex-shrink-0">
-                          <GatsbyImage
-                            image={getImage(image.gatsbyImageData)}
-                            className="rounded-full"
-                            alt={name}
-                          />
-                          {/* <img
+              return (
+                <div
+                  key={id}
+                  className="relative rounded-lg border border-gray-500 bg-white px-6 py-3 shadow-sm flex items-center space-x-3 transition duration-200 hover:shadow-lg hover:scale-105 hover:border-gray-700 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-brand"
+                >
+                  {image && (
+                    <div className="flex-shrink-0">
+                      <GatsbyImage
+                        image={getImage(image.gatsbyImageData)}
+                        className="rounded-full"
+                        alt={name}
+                      />
+                      {/* <img
                             className="h-10 w-10 rounded-full"
                             src={image?.fixed?.src}
                             alt=""
                           /> */}
-                        </div>
-                      )}
-                      <div className="flex-1 min-w-0">
-                        <a href={website} className="focus:outline-none">
-                          <span
-                            className="absolute inset-0"
-                            aria-hidden="true"
-                          />
-                          <p className="text-sm font-bold text-gray-600 mb-0">
-                            {name}
-                          </p>
-                          {profession && (
-                            <p className="text-sm text-gray-500 truncate mb-0">
-                              {profession}
-                            </p>
-                          )}
-                        </a>
-                      </div>
                     </div>
-                  )
-                })}
-              </ul>
-            </Section>
-          </Col>
-        </Row>
+                  )}
+                  <div className="flex-1 min-w-0">
+                    <a href={website} className="focus:outline-none">
+                      <span className="absolute inset-0" aria-hidden="true" />
+                      <p className="text-sm font-bold text-gray-600 mb-0">
+                        {name}
+                      </p>
+                      {profession && (
+                        <p className="text-sm text-gray-500 truncate mb-0">
+                          {profession}
+                        </p>
+                      )}
+                    </a>
+                  </div>
+                </div>
+              )
+            })}
+          </ul>
+        </Section>
 
         <div style={{ margin: '5rem 0 0 ' }}>
           <ContactSection />
         </div>
-      </Container>
+      </div>
     </Layout>
   )
 }

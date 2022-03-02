@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 
 import styled from 'styled-components'
 
-import { Container } from 'reactstrap'
 import * as v from '../config/variables'
 import { Layout } from '../components/Layout'
 import { Lead } from '../components/UI'
@@ -75,7 +74,7 @@ const PortfolioPage = ({ data }: Props) => {
       <SEO title="Current work" />
 
       <Section>
-        <Container>
+        <div className="px-3 sm:px-0 mx-auto sm:max-w-xl md:max-w-2xl lg:max-w-3xl">
           <HeadlineSection>
             <h1>{lead}</h1>
             <Lead>
@@ -92,7 +91,7 @@ const PortfolioPage = ({ data }: Props) => {
           <ReferencesList references={orderedReferences} />
 
           <ContactSection />
-        </Container>
+        </div>
       </Section>
     </Layout>
   )

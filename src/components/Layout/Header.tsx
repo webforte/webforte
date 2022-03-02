@@ -2,13 +2,10 @@ import { Link } from 'gatsby'
 import * as React from 'react'
 
 import styled from 'styled-components'
-import { Container } from 'reactstrap'
 
 const StyledHeader = styled.header<{ stickyHeader?: Boolean }>`
   height: 70px;
   padding: 1rem 0;
-  display: flex;
-  align-items: center;
 
   @media (min-width: 576px) {
     height: 90px;
@@ -71,8 +68,8 @@ type Props = { stickyHeader?: Boolean }
 
 const Header = ({ stickyHeader }: Props) => (
   <StyledHeader stickyHeader={stickyHeader}>
-    <Container>
-      <Nav>
+    <div className="px-3 sm:px-0 mx-auto sm:max-w-xl md:max-w-2xl lg:max-w-3xl">
+      <nav className="flex items-center justify-between">
         <Link to="/" title="Zur Startseite">
           <Logo src={webforteLogo} alt="Webforte" />
         </Link>
@@ -96,8 +93,8 @@ const Header = ({ stickyHeader }: Props) => (
             </Link>
           </MenuItem>
         </MenuList>
-      </Nav>
-    </Container>
+      </nav>
+    </div>
   </StyledHeader>
 )
 
