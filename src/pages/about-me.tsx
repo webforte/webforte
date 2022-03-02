@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import { StaticImage } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 
 import { Container, Row, Col } from 'reactstrap'
@@ -21,6 +21,7 @@ const technologies = [
         alt="React logo"
         className="max-h-14"
         objectFit="contain"
+        placeholder="none"
       />
     ),
   },
@@ -34,6 +35,7 @@ const technologies = [
         alt="React Native logo"
         className="max-h-14"
         objectFit="contain"
+        placeholder="none"
       />
     ),
   },
@@ -47,6 +49,7 @@ const technologies = [
         alt="Typescript logo"
         className="max-h-14"
         objectFit="contain"
+        placeholder="none"
       />
     ),
   },
@@ -60,6 +63,7 @@ const technologies = [
         alt="Gatsby logo"
         className="max-h-14"
         objectFit="contain"
+        placeholder="none"
       />
     ),
   },
@@ -73,6 +77,7 @@ const technologies = [
         alt="NodeJS logo"
         className="max-h-14"
         objectFit="contain"
+        placeholder="none"
       />
     ),
   },
@@ -86,6 +91,7 @@ const technologies = [
         alt="Directus logo"
         className="max-h-14"
         objectFit="contain"
+        placeholder="none"
       />
     ),
   },
@@ -99,6 +105,7 @@ const technologies = [
         alt="Contentful logo"
         className="max-h-14"
         objectFit="contain"
+        placeholder="none"
       />
     ),
   },
@@ -128,50 +135,7 @@ const VitaFacts = styled.ul`
   }
 `
 
-const IndexPage = () => {
-  const data = useStaticQuery(graphql`
-    {
-      allContentfulFirma(
-        filter: { showAsPartner: { eq: true }, node_locale: { eq: "en-US" } }
-      ) {
-        edges {
-          node {
-            id
-            name
-            website
-            showAsPartner
-            logo {
-              id
-              fluid(maxHeight: 140) {
-                src
-                srcSet
-              }
-            }
-          }
-        }
-      }
-      allContentfulFreund(
-        filter: { node_locale: { eq: "en-US" } }
-        sort: { fields: name, order: ASC }
-      ) {
-        edges {
-          node {
-            id
-            name
-            profession
-            website
-            image {
-              id
-              fixed(width: 90, height: 90) {
-                src
-                srcSet
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
+const IndexPage = ({ data }) => {
   const { allContentfulFirma, allContentfulFreund } = data
 
   return (
@@ -188,7 +152,8 @@ const IndexPage = () => {
                 <StaticImage
                   src="../images/me.jpg"
                   alt="Konstantin Werner"
-                  className="w-80 rounded-full mb-8 sm:mb-0 sm:mr-8 transition transform duration-200 ease-in-out hover:scale-105 shadow-xl hover:shadow-2xl"
+                  placeholder="dominantColor"
+                  className="w-80 rounded-full mb-8 sm:mb-0 sm:mr-8 transition duration-200 ease-in-out hover:scale-105 shadow-xl hover:shadow-2xl"
                 />
 
                 <VitaFacts>
@@ -198,7 +163,7 @@ const IndexPage = () => {
                     simplicity and a solid technology stack.
                   </li>
                   <li>
-                    I have over 7 years experience in frontend development and 4
+                    I have over 9 years experience in frontend development and 6
                     years in cross plattform mobile development.
                   </li>
                 </VitaFacts>
@@ -212,7 +177,7 @@ const IndexPage = () => {
                 {technologies.map(({ id, name, website, image }) => (
                   <li
                     key={id}
-                    className="flex justify-center items-center transition transform filter grayscale hover:grayscale-0 hover:scale-105"
+                    className="flex justify-center items-center transition filter grayscale hover:grayscale-0 hover:scale-105"
                   >
                     <a
                       href={website}
@@ -232,22 +197,19 @@ const IndexPage = () => {
               <ul className="grid gap-5 grid-cols-2 sm:grid-cols-3">
                 {allContentfulFirma.edges.map(({ node }) => {
                   const { id, website, name, logo } = node
-                  const {
-                    fluid: { src },
-                  } = logo
 
                   return (
                     <li
                       key={id}
-                      className="flex justify-center items-center transition transform filter grayscale hover:grayscale-0 hover:scale-105"
+                      className="flex justify-center items-center transition filter grayscale hover:grayscale-0 hover:scale-105"
                     >
                       <a
                         href={website}
                         title={`Go to ${name} website`}
                         className="no-underline"
                       >
-                        <img
-                          src={src}
+                        <GatsbyImage
+                          image={getImage(logo.gatsbyImageData)}
                           alt={`${name} Logo`}
                           className="max-h-14"
                         />
@@ -277,15 +239,20 @@ const IndexPage = () => {
                   return (
                     <div
                       key={id}
-                      className="relative rounded-lg border border-gray-500 bg-white px-6 py-3 shadow-sm flex items-center space-x-3 transition transform duration-200 hover:shadow-lg hover:scale-105 hover:border-gray-700 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-brand"
+                      className="relative rounded-lg border border-gray-500 bg-white px-6 py-3 shadow-sm flex items-center space-x-3 transition duration-200 hover:shadow-lg hover:scale-105 hover:border-gray-700 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-brand"
                     >
                       {image && (
                         <div className="flex-shrink-0">
-                          <img
+                          <GatsbyImage
+                            image={getImage(image.gatsbyImageData)}
+                            className="rounded-full"
+                            alt={name}
+                          />
+                          {/* <img
                             className="h-10 w-10 rounded-full"
                             src={image?.fixed?.src}
                             alt=""
-                          />
+                          /> */}
                         </div>
                       )}
                       <div className="flex-1 min-w-0">
@@ -319,5 +286,48 @@ const IndexPage = () => {
     </Layout>
   )
 }
+
+export const query = graphql`
+  {
+    allContentfulFirma(
+      filter: { showAsPartner: { eq: true }, node_locale: { eq: "en-US" } }
+    ) {
+      edges {
+        node {
+          id
+          name
+          website
+          showAsPartner
+          logo {
+            id
+            gatsbyImageData(layout: CONSTRAINED, placeholder: NONE, height: 70)
+          }
+        }
+      }
+    }
+    allContentfulFreund(
+      filter: { node_locale: { eq: "en-US" } }
+      sort: { fields: name, order: ASC }
+    ) {
+      edges {
+        node {
+          id
+          name
+          profession
+          website
+          image {
+            id
+            gatsbyImageData(
+              layout: FIXED
+              placeholder: DOMINANT_COLOR
+              width: 45
+              height: 45
+            )
+          }
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage

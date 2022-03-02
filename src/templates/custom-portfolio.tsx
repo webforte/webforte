@@ -55,7 +55,7 @@ const HeadlineSection = styled.header`
 `
 
 type Props = {
-  data: unknown,
+  data: unknown
 }
 
 const PortfolioPage = ({ data }: Props) => {
@@ -66,9 +66,11 @@ const PortfolioPage = ({ data }: Props) => {
   } = data
 
   const references = edges.map((r) => r.node)
-  const orderedReferences = references.sort((a, b) => {
-    return b.year - a.year
-  }).sort((a, b) => b.isHighlight - a.isHighlight)
+  const orderedReferences = references
+    .sort((a, b) => {
+      return b.year - a.year
+    })
+    .sort((a, b) => b.isHighlight - a.isHighlight)
 
   return (
     <Layout>
@@ -99,7 +101,7 @@ const PortfolioPage = ({ data }: Props) => {
 }
 
 export const query = graphql`
-  query($id: String!) {
+  query ($id: String!) {
     contentfulPortfolio(id: { eq: $id }) {
       name
       id
@@ -133,9 +135,7 @@ export const query = graphql`
           }
           bild {
             id
-            fluid {
-              src
-            }
+            gatsbyImageData(layout: CONSTRAINED, placeholder: DOMINANT_COLOR)
           }
         }
       }
@@ -173,9 +173,7 @@ export const query = graphql`
           }
           bild {
             id
-            fluid {
-              src
-            }
+            gatsbyImageData(layout: CONSTRAINED, placeholder: DOMINANT_COLOR)
           }
         }
       }

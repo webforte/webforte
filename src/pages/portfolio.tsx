@@ -64,9 +64,11 @@ const PortfolioPage = ({ data }: Props) => {
   } = data
 
   const { references } = sections[0]
-  const orderedReferences = references.sort((a, b) => {
-    return b.year - a.year
-  }).sort((a, b) => b.isHighlight - a.isHighlight)
+  const orderedReferences = references
+    .sort((a, b) => {
+      return b.year - a.year
+    })
+    .sort((a, b) => b.isHighlight - a.isHighlight)
 
   return (
     <Layout>
@@ -130,9 +132,7 @@ export const query = graphql`
           }
           bild {
             id
-            fluid {
-              src
-            }
+            gatsbyImageData(layout: CONSTRAINED, placeholder: DOMINANT_COLOR)
           }
         }
       }

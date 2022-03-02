@@ -1,4 +1,5 @@
 import React from 'react'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import * as v from '../../config/variables'
 
@@ -159,9 +160,9 @@ const ReferencesList = ({ references }: Props) => (
         >
           <BrowserWindow>
             {r.bild && (
-              <img
+              <GatsbyImage
                 style={{ maxWidth: '100%' }}
-                src={r.bild.fluid.src}
+                image={getImage(r.bild.gatsbyImageData)}
                 alt={r.title}
               />
             )}
